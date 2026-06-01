@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdelrahman El-Aqili | Marketing & Media Manager</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#050505',
+                            card: 'rgba(25, 25, 30, 0.6)',
+                            primary: '#00f2fe',
+                            secondary: '#4facfe',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: 1, filter: 'drop-shadow(0 0 10px rgba(0, 242, 254, 0.5))' },
+                            '50%': { opacity: .5, filter: 'drop-shadow(0 0 20px rgba(0, 242, 254, 0.8))' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles for Legendary Effects */
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism Utilities */
+        .glass {
+            background: rgba(25, 25, 30, 0.3);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .glass-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 242, 254, 0.5);
+            box-shadow: 0 10px 30px -10px rgba(0, 242, 254, 0.3);
+        }
+
+        /* Text Gradients */
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #00f2fe, #4facfe, #00f2fe);
+            background-size: 200% auto;
+            animation: gradientMove 3s linear infinite;
+        }
+
+        @keyframes gradientMove {
+            to { background-position: 200% center; }
+        }
+
+        /* Scroll Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 3D Canvas Background */
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050505;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00f2fe;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-primary selection:text-black">
+
+    <!-- 3D Background Container -->
+    <div id="canvas-container"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass top-0 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-heading font-bold tracking-wider flex items-center gap-2">
+                <span class="text-white">AE</span>
+                <span class="text-brand-primary text-3xl">.</span>
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium text-gray-300 tracking-wide">
+                <a href="#about" class="hover:text-brand-primary transition-colors">About</a>
+                <a href="#stats" class="hover:text-brand-primary transition-colors">Impact</a>
+                <a href="#portfolio" class="hover:text-brand-primary transition-colors">Portfolio</a>
+                <a href="#experience" class="hover:text-brand-primary transition-colors">Experience</a>
+            </div>
+            <a href="#contact" class="hidden md:inline-block px-6 py-2.5 rounded-full bg-white/10 hover:bg-brand-primary hover:text-black transition-all border border-white/20 text-sm font-semibold">
+                Let's Talk
+            </a>
+            
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 px-6">
+        <div class="max-w-5xl mx-auto text-center z-10">
+            <div class="inline-block mb-4 px-4 py-1.5 rounded-full glass border border-brand-primary/30 text-brand-primary text-xs font-bold tracking-widest uppercase reveal">
+                Marketing Manager & Media Buyer
+            </div>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-heading font-black mb-6 leading-tight reveal" style="transition-delay: 0.1s;">
+                Abdelrahman <br>
+                <span class="text-gradient">El-Aqili</span>
+            </h1>
+            <p class="text-lg md:text-2xl text-gray-400 mb-10 max-w-3xl mx-auto font-light leading-relaxed reveal" style="transition-delay: 0.2s;">
+                Transforming digital presence into measurable revenue. Overseeing technical projects from negotiation to flawless execution.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 reveal" style="transition-delay: 0.3s;">
+                <a href="#portfolio" class="px-8 py-4 rounded-full bg-gradient-to-r from-brand-primary to-brand-secondary text-black font-bold text-lg hover:shadow-[0_0_30px_rgba(0,242,254,0.4)] transition-all transform hover:-translate-y-1">
+                    View My Work <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+                <a href="#contact" class="px-8 py-4 rounded-full glass font-bold text-lg hover:bg-white/10 transition-all border border-white/20">
+                    Download Resume <i class="fas fa-download ml-2"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-float opacity-50">
+            <span class="text-xs uppercase tracking-widest mb-2">Scroll</span>
+            <div class="w-px h-12 bg-gradient-to-b from-brand-primary to-transparent"></div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="py-20 px-6 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Stat 1 -->
+                <div class="glass-card p-10 rounded-3xl text-center reveal">
+                    <div class="text-5xl font-heading font-black text-white mb-2 flex justify-center items-center">
+                        <span class="text-brand-primary">+</span>
+                        <span class="counter" data-target="1500000">0</span>
+                        <span class="text-xl ml-2 text-gray-400">EGP</span>
+                    </div>
+                    <p class="text-gray-400 text-sm uppercase tracking-wider font-semibold mt-4">Direct Revenue Generated</p>
+                    <p class="text-xs text-gray-500 mt-2">In less than a year via high-converting campaigns</p>
+                </div>
+                <!-- Stat 2 -->
+                <div class="glass-card p-10 rounded-3xl text-center reveal" style="transition-delay: 0.1s;">
+                    <div class="text-5xl font-heading font-black text-white mb-2 flex justify-center items-center">
+                        <span class="text-brand-primary">+</span>
+                        <span class="counter" data-target="3000">0</span>
+                    </div>
+                    <p class="text-gray-400 text-sm uppercase tracking-wider font-semibold mt-4">High-Quality Leads</p>
+                    <p class="text-xs text-gray-500 mt-2">Targeting high-ticket courses (> 50k EGP)</p>
+                </div>
+                <!-- Stat 3 -->
+                <div class="glass-card p-10 rounded-3xl text-center reveal" style="transition-delay: 0.2s;">
+                    <div class="text-5xl font-heading font-black text-white mb-2 flex justify-center items-center">
+                        <span class="counter" data-target="30">0</span>
+                        <span class="text-brand-primary mx-2">-</span>
+                        <span class="counter" data-target="60">0</span>
+                        <span class="text-xl ml-2 text-gray-400">EGP</span>
+                    </div>
+                    <p class="text-gray-400 text-sm uppercase tracking-wider font-semibold mt-4">Cost Per Message (CPA)</p>
+                    <p class="text-xs text-gray-500 mt-2">Maintained efficiency for premium segments</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio / Proof Section (Image Placeholders) -->
+    <section id="portfolio" class="py-32 px-6 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-4xl md:text-5xl font-heading font-bold mb-4">Proof of <span class="text-gradient">Performance</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Real numbers, real growth. Here is a glimpse into the campaigns, platforms, and dashboards that drove immense success.</p>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Project 1 -->
+                <div class="glass-card rounded-3xl overflow-hidden group reveal">
+                    <div class="relative h-72 w-full overflow-hidden bg-black/50">
+                        <!-- IMAGE PLACEHOLDER 1: Instagram Growth -->
+                        <img src="https://placehold.co/800x600/1e1e2f/00f2fe?text=Instagram+Insights+Screenshot\n(8k+Fake+to+3k+Real)" alt="Instagram Growth" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent"></div>
+                    </div>
+                    <div class="p-8 relative">
+                        <div class="absolute -top-6 right-8 bg-brand-primary text-black w-12 h-12 flex items-center justify-center rounded-full font-bold shadow-lg shadow-brand-primary/50">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Audience Transformation</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            Transformed Al-Nokhba Academy's main Instagram account from 8,000 fake followers to over 3,000 highly engaged, real followers, drastically improving conversion rates.
+                        </p>
+                        <div class="flex gap-2 text-xs font-semibold">
+                            <span class="px-3 py-1 rounded-full bg-white/10 text-brand-primary">Social Media</span>
+                            <span class="px-3 py-1 rounded-full bg-white/10 text-brand-primary">Community Management</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="glass-card rounded-3xl overflow-hidden group reveal" style="transition-delay: 0.1s;">
+                    <div class="relative h-72 w-full overflow-hidden bg-black/50">
+                        <!-- IMAGE PLACEHOLDER 2: Educational Platform -->
+                        <img src="https://placehold.co/800x600/1e1e2f/00f2fe?text=Educational+Platform\nDashboard/UI" alt="Educational Platform" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent"></div>
+                    </div>
+                    <div class="p-8 relative">
+                         <div class="absolute -top-6 right-8 bg-brand-primary text-black w-12 h-12 flex items-center justify-center rounded-full font-bold shadow-lg shadow-brand-primary/50">
+                            <i class="fas fa-laptop-code text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Ed-Tech Platform Launch</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            Supervised the development of a full educational platform based on financial governance in partnership with a software company—from pricing and planning to successful launch.
+                        </p>
+                        <div class="flex gap-2 text-xs font-semibold">
+                            <span class="px-3 py-1 rounded-full bg-white/10 text-brand-primary">Project Management</span>
+                            <span class="px-3 py-1 rounded-full bg-white/10 text-brand-primary">Software Launch</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="glass-card rounded-3xl overflow-hidden group reveal">
+                    <div class="relative h-72 w-full overflow-hidden bg-black/50">
+                        <!-- IMAGE PLACEHOLDER 3: Meta Ads Manager Dashboard -->
+                        <img src="https://placehold.co/800x600/1e1e2f/00f2fe?text=Meta+Ads+Dashboard\n(1.5M+Revenue)" alt="Ads Dashboard" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent"></div>
+                    </div>
+                    <div class="p-8 relative">
+                        <div class="absolute -top-6 right-8 bg-brand-primary text-black w-12 h-12 flex items-center justify-center rounded-full font-bold shadow-lg shadow-brand-primary/50">
+                            <i class="fas fa-chart-line text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">High-Ticket Lead Generation</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            Launched optimized Meta Ad campaigns generating over 1.5M EGP in revenue, acquiring 3,000+ leads for premium courses valued at >50k EGP with incredibly efficient CPA.
+                        </p>
+                        <div class="flex gap-2 text-xs font-semibold">
+                            <span class="px-3 py-1 rounded-full bg-white/10 text-brand-primary">Media Buying</span>
+                            <span class="px-3 py-1 rounded-full bg-white/10 text-brand-primary">Meta Ads</span>
+                            <span class="px-3 py-1 rounded-full bg-white/10 text-brand-primary">A/B Testing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="glass-card rounded-3xl overflow-hidden group reveal" style="transition-delay: 0.1s;">
+                    <div class="relative h-72 w-full overflow-hidden bg-black/50">
+                        <!-- IMAGE PLACEHOLDER 4: Media Production/Team -->
+                        <img src="https://placehold.co/800x600/1e1e2f/00f2fe?text=Media+Production\nBehind+The+Scenes" alt="Media Production" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent"></div>
+                    </div>
+                    <div class="p-8 relative">
+                        <div class="absolute -top-6 right-8 bg-brand-primary text-black w-12 h-12 flex items-center justify-center rounded-full font-bold shadow-lg shadow-brand-primary/50">
+                            <i class="fas fa-video text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Creative & Media Direction</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            Directed multidisciplinary teams (Designers, Video Creators, VO Artists) from concept to final execution, ensuring high-quality outputs aligned with brand identity.
+                        </p>
+                        <div class="flex gap-2 text-xs font-semibold">
+                            <span class="px-3 py-1 rounded-full bg-white/10 text-brand-primary">Team Leadership</span>
+                            <span class="px-3 py-1 rounded-full bg-white/10 text-brand-primary">Creative Direction</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-24 px-6 relative z-10 bg-black/30 backdrop-blur-sm border-y border-white/5">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-4xl md:text-5xl font-heading font-bold mb-4">Professional <span class="text-gradient">Journey</span></h2>
+                <p class="text-gray-400">Over four years of rapid growth and leadership.</p>
+            </div>
+
+            <div class="relative border-l-2 border-brand-primary/30 pl-8 ml-4 md:ml-0 md:pl-12 space-y-16">
+                
+                <!-- Role 1 -->
+                <div class="relative reveal">
+                    <div class="absolute -left-[41px] md:-left-[57px] top-1 w-6 h-6 rounded-full bg-brand-primary shadow-[0_0_15px_rgba(0,242,254,0.8)] border-4 border-[#050505]"></div>
+                    <div class="mb-1 flex flex-col md:flex-row md:items-center justify-between gap-2">
+                        <h3 class="text-2xl font-bold text-white">Marketing & Media Production Manager</h3>
+                        <span class="px-3 py-1 rounded-full bg-brand-primary/10 text-brand-primary border border-brand-primary/20 text-xs font-semibold w-fit">03/2026 – Present</span>
+                    </div>
+                    <h4 class="text-lg text-gray-400 mb-4 font-medium">Al-Nokhba International Academy</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li class="flex items-start"><i class="fas fa-check-circle text-brand-primary mt-1 mr-3"></i> <span><strong>Team Management:</strong> Directly managing Creative, Media & Production, and Digital Operations teams.</span></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-brand-primary mt-1 mr-3"></i> <span><strong>Strategic Management:</strong> Developing annual marketing strategies, allocating budgets, and monitoring ROI.</span></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-brand-primary mt-1 mr-3"></i> <span><strong>Digital Platforms:</strong> Launching paid campaigns, overseeing SEO, and providing deep analytical reporting.</span></li>
+                    </ul>
+                </div>
+
+                <!-- Role 2 -->
+                <div class="relative reveal">
+                    <div class="absolute -left-[41px] md:-left-[57px] top-1 w-6 h-6 rounded-full bg-brand-secondary shadow-[0_0_15px_rgba(79,172,254,0.6)] border-4 border-[#050505]"></div>
+                    <div class="mb-1 flex flex-col md:flex-row md:items-center justify-between gap-2">
+                        <h3 class="text-2xl font-bold text-white">Social Media Team Leader & Media Buyer</h3>
+                        <span class="px-3 py-1 rounded-full bg-white/10 text-gray-300 border border-white/20 text-xs w-fit">05/2025 – 01/2025</span>
+                    </div>
+                    <h4 class="text-lg text-gray-400 mb-4 font-medium">Al-Nokhba International Academy</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li class="flex items-start"><i class="fas fa-check-circle text-brand-secondary mt-1 mr-3"></i> <span>Promoted to leadership after 6 months. Developed monthly content strategies and supervised creative staff.</span></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-brand-secondary mt-1 mr-3"></i> <span>Managed SharePoint system implementation and internal workflow structures.</span></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-brand-secondary mt-1 mr-3"></i> <span>Trained team members, wrote marketing copy, and optimized Meta ad campaigns.</span></li>
+                    </ul>
+                </div>
+
+                 <!-- Role 3 -->
+                 <div class="relative reveal">
+                    <div class="absolute -left-[41px] md:-left-[57px] top-1 w-6 h-6 rounded-full bg-gray-600 border-4 border-[#050505]"></div>
+                    <div class="mb-1 flex flex-col md:flex-row md:items-center justify-between gap-2">
+                        <h3 class="text-2xl font-bold text-white">Social Media Specialist</h3>
+                        <span class="px-3 py-1 rounded-full bg-white/5 text-gray-400 border border-white/10 text-xs w-fit">11/2021 – 04/2025</span>
+                    </div>
+                    <h4 class="text-lg text-gray-400 mb-4 font-medium">Eagle Company & Al-Nokhba</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li class="flex items-start"><i class="fas fa-check-circle text-gray-500 mt-1 mr-3"></i> <span>Managed daily content operations and implemented initial content strategies.</span></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-gray-500 mt-1 mr-3"></i> <span>Analyzed performance metrics, driving real engagement and organic growth.</span></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="py-12 px-6 border-t border-white/10 relative z-10 bg-[#050505]">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <h2 class="text-2xl font-heading font-bold text-white mb-2">Ready to scale your business?</h2>
+                <p class="text-gray-400 text-sm">Let's discuss strategy, media buying, and growth.</p>
+            </div>
+            <div class="flex gap-4">
+                <a href="mailto:ABDALRAHMAN2610@GMAIL.COM" class="w-12 h-12 rounded-full glass flex items-center justify-center text-xl hover:bg-brand-primary hover:text-black transition-all">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="tel:01033869376" class="w-12 h-12 rounded-full glass flex items-center justify-center text-xl hover:bg-brand-primary hover:text-black transition-all">
+                    <i class="fas fa-phone"></i>
+                </a>
+                <a href="#" class="w-12 h-12 rounded-full glass flex items-center justify-center text-xl hover:bg-brand-primary hover:text-black transition-all">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+        <div class="text-center mt-12 text-gray-600 text-xs">
+            &copy; 2026 Abdelrahman El-Aqili. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Three.js (For the Legendary Background) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- Scripts -->
+    <script>
+        // --- 1. Three.js Particle Network Background ---
+        const initThreeJS = () => {
+            const container = document.getElementById('canvas-container');
+            const scene = new THREE.Scene();
+            
+            // Camera setup
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 50;
+
+            // Renderer setup
+            const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            container.appendChild(renderer.domElement);
+
+            // Particles
+            const particlesGeometry = new THREE.BufferGeometry();
+            const particlesCount = 700; // Adjust for density
+            const posArray = new Float32Array(particlesCount * 3);
+
+            for(let i = 0; i < particlesCount * 3; i++) {
+                posArray[i] = (Math.random() - 0.5) * 150; // Spread
+            }
+
+            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+
+            // Material - Cyan/Blue glowing dots
+            const particlesMaterial = new THREE.PointsMaterial({
+                size: 0.2,
+                color: '#00f2fe',
+                transparent: true,
+                opacity: 0.6,
+                blending: THREE.AdditiveBlending
+            });
+
+            const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+            scene.add(particlesMesh);
+
+            // Mouse Interaction Variables
+            let mouseX = 0;
+            let mouseY = 0;
+            let targetX = 0;
+            let targetY = 0;
+            const windowHalfX = window.innerWidth / 2;
+            const windowHalfY = window.innerHeight / 2;
+
+            document.addEventListener('mousemove', (event) => {
+                mouseX = (event.clientX - windowHalfX);
+                mouseY = (event.clientY - windowHalfY);
+            });
+
+            // Animation Loop
+            const animate = () => {
+                requestAnimationFrame(animate);
+
+                // Slow rotation
+                particlesMesh.rotation.y += 0.001;
+                particlesMesh.rotation.x += 0.0005;
+
+                // Mouse interaction with easing
+                targetX = mouseX * 0.001;
+                targetY = mouseY * 0.001;
+                
+                particlesMesh.rotation.y += 0.05 * (targetX - particlesMesh.rotation.y);
+                particlesMesh.rotation.x += 0.05 * (targetY - particlesMesh.rotation.x);
+
+                renderer.render(scene, camera);
+            };
+
+            animate();
+
+            // Handle Resize
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        };
+
+        // --- 2. Scroll Reveal Elements ---
+        const initScrollReveal = () => {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        
+                        // Trigger counters if it's the stats section
+                        if(entry.target.querySelector('.counter')) {
+                            startCounters(entry.target);
+                        }
+                        
+                        observer.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            reveals.forEach(reveal => {
+                revealObserver.observe(reveal);
+            });
+        };
+
+        // --- 3. Number Counter Animation ---
+        const startCounters = (container) => {
+            const counters = container.querySelectorAll('.counter');
+            const speed = 200; // lower is slower
+
+            counters.forEach(counter => {
+                const animate = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText.replace(/,/g, ''); // remove commas for math
+                    
+                    const inc = target / speed;
+
+                    if (count < target) {
+                        // Format with commas
+                        counter.innerText = Math.ceil(count + inc).toLocaleString();
+                        setTimeout(animate, 20);
+                    } else {
+                        counter.innerText = target.toLocaleString();
+                    }
+                }
+                
+                // Only start if not already started
+                if(counter.innerText === '0') {
+                    animate();
+                }
+            });
+        };
+
+        // --- 4. Navbar Blur on Scroll ---
+        const initNavbar = () => {
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.style.background = 'rgba(5, 5, 5, 0.8)';
+                    navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.5)';
+                } else {
+                    navbar.style.background = 'rgba(25, 25, 30, 0.3)';
+                    navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
+                }
+            });
+        };
+
+        // Initialize Everything on Load
+        window.onload = () => {
+            initThreeJS();
+            initScrollReveal();
+            initNavbar();
+        };
+    </script>
+</body>
+</html>
