@@ -105,17 +105,6 @@
             box-shadow: 0 0 10px #3b82f6;
             border-radius: 2px;
         }
-
-        /* Notice Box Animation - Sleek Pill Version */
-        @keyframes alertAnimation {
-            0%, 100% { opacity: 0; transform: translate(-50%, 20px) scale(0.95); }
-            15%, 85% { opacity: 1; transform: translate(-50%, 0) scale(1); }
-            50% { opacity: 1; transform: translate(-50%, -3px) scale(1.02); box-shadow: 0 0 20px rgba(59, 130, 246, 0.4); }
-        }
-        .notice-box {
-            animation: alertAnimation 7s ease-in-out infinite;
-            pointer-events: none; /* Crucial: This makes the box click-through */
-        }
     </style>
 </head>
 <body class="antialiased selection:bg-brand-primary selection:text-white">
@@ -123,15 +112,15 @@
     <!-- 3D Background -->
     <div id="canvas-container"></div>
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-40 glass-panel border-b-0 border-white/10 transition-all duration-300" id="navbar">
+    <!-- Navigation (Fully Transparent & No Borders) -->
+    <nav class="fixed w-full z-40 transition-all duration-300 bg-transparent pt-4" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex-shrink-0 font-bold text-2xl tracking-tighter">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0 font-bold text-2xl tracking-tighter drop-shadow-md">
                     A. AL-OQAILY<span class="text-brand-primary">.</span>
                 </div>
                 <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
+                    <div class="ml-10 flex items-baseline space-x-8 drop-shadow-md">
                         <a href="#home" class="hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
                         <a href="#stats" class="hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Impact</a>
                         <a href="#experience" class="hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Experience</a>
@@ -319,26 +308,26 @@
     <!-- ========================================== -->
     <div id="gallery-page" class="hidden fixed inset-0 z-[100] bg-[#050505] overflow-y-auto w-full h-full">
         
-        <!-- Gallery Header -->
-        <div class="sticky top-0 z-50 glass-panel border-b border-white/10 px-4 py-4 sm:px-8 flex items-center justify-between bg-black/80 backdrop-blur-md">
-            <div class="font-bold text-xl tracking-tighter">
+        <!-- Gallery Header (Fully Transparent & No Borders) -->
+        <div class="sticky top-0 z-50 px-4 py-6 sm:px-8 flex items-center justify-between bg-transparent pointer-events-none">
+            <div class="font-bold text-xl tracking-tighter drop-shadow-md pointer-events-auto">
                 A. AL-OQAILY<span class="text-brand-primary">.</span>
             </div>
-            <button onclick="closeGallery()" class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 hover:bg-brand-primary text-white font-semibold transition-all border border-white/10 text-sm">
+            <button onclick="closeGallery()" class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 hover:bg-brand-primary text-white font-semibold transition-all border border-white/10 text-sm pointer-events-auto shadow-lg backdrop-blur-md">
                 <span class="arabic-text">رجوع للصفحة الرئيسية</span>
                 <i class="fas fa-arrow-right"></i>
             </button>
         </div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 relative">
             <!-- Tabs Header -->
             <div class="flex justify-center items-center pb-8">
-                <div class="flex gap-2 bg-white/5 p-1.5 rounded-full border border-white/10">
+                <div class="flex gap-2 bg-white/5 p-1.5 rounded-full border border-white/10 backdrop-blur-md shadow-lg relative z-10">
                     <button onclick="switchTab('plans')" id="btn-plans" class="tab-btn active px-8 py-2.5 rounded-full text-sm font-bold tracking-wider text-gray-400 uppercase">
                         Plans
                     </button>
                     <button onclick="switchTab('reels')" id="btn-reels" class="tab-btn px-8 py-2.5 rounded-full text-sm font-bold tracking-wider text-gray-400 uppercase">
-                        Reels
+                        Reels & Videos
                     </button>
                 </div>
             </div>
@@ -365,10 +354,10 @@
                     </a>
                 </div>
 
-                <!-- 2. REELS TAB CONTENT (Arabic UI Cards) -->
+                <!-- 2. REELS & VIDEOS TAB CONTENT (Interleaved TikTok and YouTube) -->
                 <div id="content-reels" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 arabic-text relative z-10 pb-10">
                     
-                    <!-- Reel 0: Ramadan -->
+                    <!-- 1. TikTok: Ramadan -->
                     <div class="glass-panel bg-black/40 rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-brand-primary/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]">
                         <div class="h-48 relative overflow-hidden bg-gray-900 flex items-center justify-center">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
@@ -397,14 +386,47 @@
                                     </div>
                                 </div>
                             </div>
-                            
                             <a href="https://vt.tiktok.com/ZSCJEmaJJ/" target="_blank" rel="noopener noreferrer" class="mt-6 w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 hover:bg-white/10 hover:border-white/30 text-white border border-white/10 transition-colors font-semibold text-sm">
                                 مشاهدة الريل عبر TikTok <i class="fas fa-external-link-alt text-xs mt-1"></i>
                             </a>
                         </div>
                     </div>
 
-                    <!-- Reel 1 -->
+                    <!-- 2. YouTube 1 -->
+                    <div class="glass-panel bg-black/40 rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-red-500/50 hover:shadow-[0_0_30px_rgba(255,0,0,0.2)]">
+                        <div class="h-48 relative overflow-hidden bg-gray-900 flex items-center justify-center">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
+                            <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=800&q=80" alt="YouTube Thumbnail" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-110">
+                            <div class="absolute z-20 w-14 h-14 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center border border-white/30 group-hover:bg-[#ff0000] group-hover:border-white transition-colors shadow-lg">
+                                <i class="fab fa-youtube text-white text-2xl drop-shadow-md"></i>
+                            </div>
+                        </div>
+                        <div class="p-6 relative z-20 -mt-8">
+                            <span class="px-3 py-1 text-xs font-bold bg-[#ff0000] text-white rounded-full shadow-lg">إنتاج متكامل</span>
+                            <h3 class="text-xl font-bold text-white mt-4 mb-2">فيديو يوتيوب إبداعي</h3>
+                            <div class="space-y-3 mt-4 border-t border-white/10 pt-4">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0"><i class="fas fa-video text-red-400 text-sm"></i></div>
+                                    <div>
+                                        <p class="text-xs text-gray-500 font-semibold">دوري في العمل:</p>
+                                        <p class="text-sm text-gray-300">فويس أوفر، مونتاج، مؤثرات، إسكربت، وستوري بورد متكامل.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0"><i class="fas fa-tools text-red-400 text-sm"></i></div>
+                                    <div>
+                                        <p class="text-xs text-gray-500 font-semibold">الأدوات المستخدمة:</p>
+                                        <p class="text-sm text-gray-300 font-sans" dir="ltr">Premiere, Audio Editing, Scripting</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="https://youtu.be/3ZF4HAuS-O4?si=ndaBiJ8jCczkAm7A" target="_blank" rel="noopener noreferrer" class="mt-6 w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 hover:bg-white/10 hover:border-white/30 text-white border border-white/10 transition-colors font-semibold text-sm hover:text-red-400">
+                                مشاهدة عبر YouTube <i class="fas fa-external-link-alt text-xs mt-1"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 3. TikTok: Canva frame -->
                     <div class="glass-panel bg-black/40 rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-brand-primary/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]">
                         <div class="h-48 relative overflow-hidden bg-gray-900 flex items-center justify-center">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
@@ -438,7 +460,41 @@
                         </div>
                     </div>
 
-                    <!-- Reel 2 -->
+                    <!-- 4. YouTube 2 -->
+                    <div class="glass-panel bg-black/40 rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-red-500/50 hover:shadow-[0_0_30px_rgba(255,0,0,0.2)]">
+                        <div class="h-48 relative overflow-hidden bg-gray-900 flex items-center justify-center">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
+                            <img src="https://images.unsplash.com/photo-1531256379416-9f000e90aacc?auto=format&fit=crop&w=800&q=80" alt="YouTube Thumbnail" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-110">
+                            <div class="absolute z-20 w-14 h-14 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center border border-white/30 group-hover:bg-[#ff0000] group-hover:border-white transition-colors shadow-lg">
+                                <i class="fab fa-youtube text-white text-2xl drop-shadow-md"></i>
+                            </div>
+                        </div>
+                        <div class="p-6 relative z-20 -mt-8">
+                            <span class="px-3 py-1 text-xs font-bold bg-[#ff0000] text-white rounded-full shadow-lg">إنتاج متكامل</span>
+                            <h3 class="text-xl font-bold text-white mt-4 mb-2">توجيه مرئي ومونتاج شامل</h3>
+                            <div class="space-y-3 mt-4 border-t border-white/10 pt-4">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0"><i class="fas fa-video text-red-400 text-sm"></i></div>
+                                    <div>
+                                        <p class="text-xs text-gray-500 font-semibold">دوري في العمل:</p>
+                                        <p class="text-sm text-gray-300">فويس أوفر، مونتاج، مؤثرات، إسكربت، وستوري بورد متكامل.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0"><i class="fas fa-tools text-red-400 text-sm"></i></div>
+                                    <div>
+                                        <p class="text-xs text-gray-500 font-semibold">الأدوات المستخدمة:</p>
+                                        <p class="text-sm text-gray-300 font-sans" dir="ltr">Premiere, Audio Editing, Scripting</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="https://youtu.be/hrMsE0-A-8M?si=d2q-sV5mB_OYQJqU" target="_blank" rel="noopener noreferrer" class="mt-6 w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 hover:bg-white/10 hover:border-white/30 text-white border border-white/10 transition-colors font-semibold text-sm hover:text-red-400">
+                                مشاهدة عبر YouTube <i class="fas fa-external-link-alt text-xs mt-1"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 5. TikTok: Event Coverage -->
                     <div class="glass-panel bg-black/40 rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-brand-primary/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]">
                         <div class="h-48 relative overflow-hidden bg-gray-900 flex items-center justify-center">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
@@ -472,7 +528,41 @@
                         </div>
                     </div>
 
-                    <!-- Reel 3 -->
+                    <!-- 6. YouTube 3 -->
+                    <div class="glass-panel bg-black/40 rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-red-500/50 hover:shadow-[0_0_30px_rgba(255,0,0,0.2)]">
+                        <div class="h-48 relative overflow-hidden bg-gray-900 flex items-center justify-center">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
+                            <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80" alt="YouTube Thumbnail" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-110">
+                            <div class="absolute z-20 w-14 h-14 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center border border-white/30 group-hover:bg-[#ff0000] group-hover:border-white transition-colors shadow-lg">
+                                <i class="fab fa-youtube text-white text-2xl drop-shadow-md"></i>
+                            </div>
+                        </div>
+                        <div class="p-6 relative z-20 -mt-8">
+                            <span class="px-3 py-1 text-xs font-bold bg-[#ff0000] text-white rounded-full shadow-lg">إنتاج متكامل</span>
+                            <h3 class="text-xl font-bold text-white mt-4 mb-2">صياغة بصرية وتعليق صوتي</h3>
+                            <div class="space-y-3 mt-4 border-t border-white/10 pt-4">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0"><i class="fas fa-video text-red-400 text-sm"></i></div>
+                                    <div>
+                                        <p class="text-xs text-gray-500 font-semibold">دوري في العمل:</p>
+                                        <p class="text-sm text-gray-300">فويس أوفر، مونتاج، مؤثرات، إسكربت، وستوري بورد متكامل.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0"><i class="fas fa-tools text-red-400 text-sm"></i></div>
+                                    <div>
+                                        <p class="text-xs text-gray-500 font-semibold">الأدوات المستخدمة:</p>
+                                        <p class="text-sm text-gray-300 font-sans" dir="ltr">Premiere, Audio Editing, Scripting</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="https://youtu.be/8YWVz_lMw_w?si=0NVGfXMhCwrgYbDE" target="_blank" rel="noopener noreferrer" class="mt-6 w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 hover:bg-white/10 hover:border-white/30 text-white border border-white/10 transition-colors font-semibold text-sm hover:text-red-400">
+                                مشاهدة عبر YouTube <i class="fas fa-external-link-alt text-xs mt-1"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 7. TikTok: Supervision -->
                     <div class="glass-panel bg-black/40 rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-brand-primary/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]">
                         <div class="h-48 relative overflow-hidden bg-gray-900 flex items-center justify-center">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
@@ -506,7 +596,41 @@
                         </div>
                     </div>
 
-                    <!-- Reel 4 -->
+                    <!-- 8. YouTube 4 -->
+                    <div class="glass-panel bg-black/40 rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-red-500/50 hover:shadow-[0_0_30px_rgba(255,0,0,0.2)]">
+                        <div class="h-48 relative overflow-hidden bg-gray-900 flex items-center justify-center">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
+                            <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=800&q=80" alt="YouTube Thumbnail" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-110">
+                            <div class="absolute z-20 w-14 h-14 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center border border-white/30 group-hover:bg-[#ff0000] group-hover:border-white transition-colors shadow-lg">
+                                <i class="fab fa-youtube text-white text-2xl drop-shadow-md"></i>
+                            </div>
+                        </div>
+                        <div class="p-6 relative z-20 -mt-8">
+                            <span class="px-3 py-1 text-xs font-bold bg-[#ff0000] text-white rounded-full shadow-lg">إنتاج متكامل</span>
+                            <h3 class="text-xl font-bold text-white mt-4 mb-2">مونتاج وتصميم صوتي</h3>
+                            <div class="space-y-3 mt-4 border-t border-white/10 pt-4">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0"><i class="fas fa-video text-red-400 text-sm"></i></div>
+                                    <div>
+                                        <p class="text-xs text-gray-500 font-semibold">دوري في العمل:</p>
+                                        <p class="text-sm text-gray-300">فويس أوفر، مونتاج، مؤثرات، إسكربت، وستوري بورد متكامل.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0"><i class="fas fa-tools text-red-400 text-sm"></i></div>
+                                    <div>
+                                        <p class="text-xs text-gray-500 font-semibold">الأدوات المستخدمة:</p>
+                                        <p class="text-sm text-gray-300 font-sans" dir="ltr">Premiere, Audio Editing, Scripting</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="https://youtu.be/kybR5QGLfsk?si=2WA4PGaxu7H8saF4" target="_blank" rel="noopener noreferrer" class="mt-6 w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 hover:bg-white/10 hover:border-white/30 text-white border border-white/10 transition-colors font-semibold text-sm hover:text-red-400">
+                                مشاهدة عبر YouTube <i class="fas fa-external-link-alt text-xs mt-1"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 9. TikTok: Full Editing -->
                     <div class="glass-panel bg-black/40 rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-brand-primary/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]">
                         <div class="h-48 relative overflow-hidden bg-gray-900 flex items-center justify-center">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
@@ -540,7 +664,41 @@
                         </div>
                     </div>
 
-                    <!-- Reel 5 -->
+                    <!-- 10. YouTube 5 -->
+                    <div class="glass-panel bg-black/40 rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-red-500/50 hover:shadow-[0_0_30px_rgba(255,0,0,0.2)]">
+                        <div class="h-48 relative overflow-hidden bg-gray-900 flex items-center justify-center">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
+                            <img src="https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?auto=format&fit=crop&w=800&q=80" alt="YouTube Thumbnail" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-110">
+                            <div class="absolute z-20 w-14 h-14 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center border border-white/30 group-hover:bg-[#ff0000] group-hover:border-white transition-colors shadow-lg">
+                                <i class="fab fa-youtube text-white text-2xl drop-shadow-md"></i>
+                            </div>
+                        </div>
+                        <div class="p-6 relative z-20 -mt-8">
+                            <span class="px-3 py-1 text-xs font-bold bg-[#ff0000] text-white rounded-full shadow-lg">إنتاج متكامل</span>
+                            <h3 class="text-xl font-bold text-white mt-4 mb-2">كتابة إسكربت وقصة مرئية</h3>
+                            <div class="space-y-3 mt-4 border-t border-white/10 pt-4">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0"><i class="fas fa-video text-red-400 text-sm"></i></div>
+                                    <div>
+                                        <p class="text-xs text-gray-500 font-semibold">دوري في العمل:</p>
+                                        <p class="text-sm text-gray-300">فويس أوفر، مونتاج، مؤثرات، إسكربت، وستوري بورد متكامل.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0"><i class="fas fa-tools text-red-400 text-sm"></i></div>
+                                    <div>
+                                        <p class="text-xs text-gray-500 font-semibold">الأدوات المستخدمة:</p>
+                                        <p class="text-sm text-gray-300 font-sans" dir="ltr">Premiere, Audio Editing, Scripting</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="https://youtu.be/sYqRmYyNc6k?si=Yv_m8-0x-AJhDSef" target="_blank" rel="noopener noreferrer" class="mt-6 w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 hover:bg-white/10 hover:border-white/30 text-white border border-white/10 transition-colors font-semibold text-sm hover:text-red-400">
+                                مشاهدة عبر YouTube <i class="fas fa-external-link-alt text-xs mt-1"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 11. TikTok: Stock Video -->
                     <div class="glass-panel bg-black/40 rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-brand-primary/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]">
                         <div class="h-48 relative overflow-hidden bg-gray-900 flex items-center justify-center">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
@@ -574,7 +732,41 @@
                         </div>
                     </div>
 
-                    <!-- Reel 6 -->
+                    <!-- 12. YouTube 6 -->
+                    <div class="glass-panel bg-black/40 rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-red-500/50 hover:shadow-[0_0_30px_rgba(255,0,0,0.2)]">
+                        <div class="h-48 relative overflow-hidden bg-gray-900 flex items-center justify-center">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
+                            <img src="https://images.unsplash.com/photo-1559526324-c1f275fbfa32?auto=format&fit=crop&w=800&q=80" alt="YouTube Thumbnail" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-110">
+                            <div class="absolute z-20 w-14 h-14 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center border border-white/30 group-hover:bg-[#ff0000] group-hover:border-white transition-colors shadow-lg">
+                                <i class="fab fa-youtube text-white text-2xl drop-shadow-md"></i>
+                            </div>
+                        </div>
+                        <div class="p-6 relative z-20 -mt-8">
+                            <span class="px-3 py-1 text-xs font-bold bg-[#ff0000] text-white rounded-full shadow-lg">إنتاج متكامل</span>
+                            <h3 class="text-xl font-bold text-white mt-4 mb-2">إبداع مرئي وستوري بورد</h3>
+                            <div class="space-y-3 mt-4 border-t border-white/10 pt-4">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0"><i class="fas fa-video text-red-400 text-sm"></i></div>
+                                    <div>
+                                        <p class="text-xs text-gray-500 font-semibold">دوري في العمل:</p>
+                                        <p class="text-sm text-gray-300">فويس أوفر، مونتاج، مؤثرات، إسكربت، وستوري بورد متكامل.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0"><i class="fas fa-tools text-red-400 text-sm"></i></div>
+                                    <div>
+                                        <p class="text-xs text-gray-500 font-semibold">الأدوات المستخدمة:</p>
+                                        <p class="text-sm text-gray-300 font-sans" dir="ltr">Premiere, Audio Editing, Scripting</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="https://youtu.be/rx2FX7QFdVE?si=E6AN-tjG-BUr4uys" target="_blank" rel="noopener noreferrer" class="mt-6 w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 hover:bg-white/10 hover:border-white/30 text-white border border-white/10 transition-colors font-semibold text-sm hover:text-red-400">
+                                مشاهدة عبر YouTube <i class="fas fa-external-link-alt text-xs mt-1"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 13. TikTok: Script/Supervision -->
                     <div class="glass-panel bg-black/40 rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-brand-primary/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]">
                         <div class="h-48 relative overflow-hidden bg-gray-900 flex items-center justify-center">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
@@ -608,248 +800,41 @@
                         </div>
                     </div>
 
-                    <!-- Reel 7 -->
-                    <div class="glass-panel bg-black/40 rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-brand-primary/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]">
+                    <!-- 14. YouTube 7 (Channel AB-Cast) -->
+                    <div class="glass-panel bg-black/40 rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-red-500/50 hover:shadow-[0_0_30px_rgba(255,0,0,0.2)]">
                         <div class="h-48 relative overflow-hidden bg-gray-900 flex items-center justify-center">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
-                            <img src="https://images.unsplash.com/photo-1589254065878-42c9da997008?auto=format&fit=crop&w=800&q=80" alt="Reel Thumbnail" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-110">
-                            <div class="absolute z-20 w-14 h-14 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center border border-white/30 group-hover:bg-[#00f2fe] group-hover:border-white transition-colors shadow-lg">
-                                <i class="fab fa-tiktok text-white text-2xl drop-shadow-md"></i>
+                            <img src="https://images.unsplash.com/photo-1516280440502-3c1e289e6eb1?auto=format&fit=crop&w=800&q=80" alt="YouTube Thumbnail" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-110">
+                            <div class="absolute z-20 w-14 h-14 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center border border-white/30 group-hover:bg-[#ff0000] group-hover:border-white transition-colors shadow-lg">
+                                <i class="fab fa-youtube text-white text-2xl drop-shadow-md"></i>
                             </div>
                         </div>
                         <div class="p-6 relative z-20 -mt-8">
-                            <span class="px-3 py-1 text-xs font-bold bg-[#00f2fe] text-black rounded-full shadow-lg">إشراف وذكاء اصطناعي</span>
-                            <h3 class="text-xl font-bold text-white mt-4 mb-2">كتابة إسكربت وتعليق صوتي (AI)</h3>
+                            <span class="px-3 py-1 text-xs font-bold bg-[#ff0000] text-white rounded-full shadow-lg">قناة يوتيوب كاملة</span>
+                            <h3 class="text-xl font-bold text-white mt-4 mb-2">قناة AB-Cast</h3>
                             <div class="space-y-3 mt-4 border-t border-white/10 pt-4">
                                 <div class="flex items-start gap-3">
-                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0"><i class="fas fa-video text-blue-400 text-sm"></i></div>
+                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0"><i class="fas fa-video text-red-400 text-sm"></i></div>
                                     <div>
                                         <p class="text-xs text-gray-500 font-semibold">دوري في العمل:</p>
-                                        <p class="text-sm text-gray-300">أشرفت عليه وعملت الإسكربت الخاص به والفويس أوفر باستخدام الذكاء الاصطناعي.</p>
+                                        <p class="text-sm text-gray-300">إشراف وتأسيس للقناة وإنتاج كامل للمحتوى من الإسكربت للمونتاج.</p>
                                     </div>
                                 </div>
                                 <div class="flex items-start gap-3">
-                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0"><i class="fas fa-tools text-purple-400 text-sm"></i></div>
+                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0"><i class="fas fa-tools text-red-400 text-sm"></i></div>
                                     <div>
                                         <p class="text-xs text-gray-500 font-semibold">الأدوات المستخدمة:</p>
-                                        <p class="text-sm text-gray-300 font-sans" dir="ltr">AI Voice Tools, Scripting</p>
+                                        <p class="text-sm text-gray-300 font-sans" dir="ltr">Channel Management, Full Production</p>
                                     </div>
                                 </div>
                             </div>
-                            <a href="https://vt.tiktok.com/ZSCJwfwT5/" target="_blank" rel="noopener noreferrer" class="mt-6 w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 hover:bg-white/10 hover:border-white/30 text-white border border-white/10 transition-colors font-semibold text-sm">
-                                مشاهدة الريل عبر TikTok <i class="fas fa-external-link-alt text-xs mt-1"></i>
+                            <a href="https://youtube.com/@ab-cast?si=yazb0B0fDy8fDIel" target="_blank" rel="noopener noreferrer" class="mt-6 w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 hover:bg-white/10 hover:border-white/30 text-white border border-white/10 transition-colors font-semibold text-sm hover:text-red-400">
+                                زيارة القناة على YouTube <i class="fas fa-external-link-alt text-xs mt-1"></i>
                             </a>
                         </div>
                     </div>
 
-                    <!-- Reel 8 -->
-                    <div class="glass-panel bg-black/40 rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-brand-primary/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]">
-                        <div class="h-48 relative overflow-hidden bg-gray-900 flex items-center justify-center">
-                            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
-                            <img src="https://images.unsplash.com/photo-1516280440502-3c1e289e6eb1?auto=format&fit=crop&w=800&q=80" alt="Reel Thumbnail" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-110">
-                            <div class="absolute z-20 w-14 h-14 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center border border-white/30 group-hover:bg-[#00f2fe] group-hover:border-white transition-colors shadow-lg">
-                                <i class="fab fa-tiktok text-white text-2xl drop-shadow-md"></i>
-                            </div>
-                        </div>
-                        <div class="p-6 relative z-20 -mt-8">
-                            <span class="px-3 py-1 text-xs font-bold bg-[#00f2fe] text-black rounded-full shadow-lg">إشراف وذكاء اصطناعي</span>
-                            <h3 class="text-xl font-bold text-white mt-4 mb-2">إشراف وتعليق صوتي (AI)</h3>
-                            <div class="space-y-3 mt-4 border-t border-white/10 pt-4">
-                                <div class="flex items-start gap-3">
-                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0"><i class="fas fa-video text-blue-400 text-sm"></i></div>
-                                    <div>
-                                        <p class="text-xs text-gray-500 font-semibold">دوري في العمل:</p>
-                                        <p class="text-sm text-gray-300">أشرفت عليه وعملت الإسكربت الخاص به والفويس أوفر باستخدام الذكاء الاصطناعي.</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-start gap-3">
-                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0"><i class="fas fa-tools text-purple-400 text-sm"></i></div>
-                                    <div>
-                                        <p class="text-xs text-gray-500 font-semibold">الأدوات المستخدمة:</p>
-                                        <p class="text-sm text-gray-300 font-sans" dir="ltr">AI Voice Tools, Scripting</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="https://vt.tiktok.com/ZSCJwCRtt/" target="_blank" rel="noopener noreferrer" class="mt-6 w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 hover:bg-white/10 hover:border-white/30 text-white border border-white/10 transition-colors font-semibold text-sm">
-                                مشاهدة الريل عبر TikTok <i class="fas fa-external-link-alt text-xs mt-1"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Reel 9 -->
-                    <div class="glass-panel bg-black/40 rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-brand-primary/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]">
-                        <div class="h-48 relative overflow-hidden bg-gray-900 flex items-center justify-center">
-                            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
-                            <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&w=800&q=80" alt="Reel Thumbnail" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-110">
-                            <div class="absolute z-20 w-14 h-14 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center border border-white/30 group-hover:bg-[#00f2fe] group-hover:border-white transition-colors shadow-lg">
-                                <i class="fab fa-tiktok text-white text-2xl drop-shadow-md"></i>
-                            </div>
-                        </div>
-                        <div class="p-6 relative z-20 -mt-8">
-                            <span class="px-3 py-1 text-xs font-bold bg-[#00f2fe] text-black rounded-full shadow-lg">تصميم ومونتاج</span>
-                            <h3 class="text-xl font-bold text-white mt-4 mb-2">تصميم ريل بالكامل</h3>
-                            <div class="space-y-3 mt-4 border-t border-white/10 pt-4">
-                                <div class="flex items-start gap-3">
-                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0"><i class="fas fa-video text-blue-400 text-sm"></i></div>
-                                    <div>
-                                        <p class="text-xs text-gray-500 font-semibold">دوري في العمل:</p>
-                                        <p class="text-sm text-gray-300">قمت بعمله وتصميمه بالكامل بواسطة كانفا.</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-start gap-3">
-                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0"><i class="fas fa-tools text-purple-400 text-sm"></i></div>
-                                    <div>
-                                        <p class="text-xs text-gray-500 font-semibold">الأدوات المستخدمة:</p>
-                                        <p class="text-sm text-gray-300 font-sans" dir="ltr">Canva</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="https://vt.tiktok.com/ZSCJwkPP9/" target="_blank" rel="noopener noreferrer" class="mt-6 w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 hover:bg-white/10 hover:border-white/30 text-white border border-white/10 transition-colors font-semibold text-sm">
-                                مشاهدة الريل عبر TikTok <i class="fas fa-external-link-alt text-xs mt-1"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Reel 10 -->
-                    <div class="glass-panel bg-black/40 rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-brand-primary/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]">
-                        <div class="h-48 relative overflow-hidden bg-gray-900 flex items-center justify-center">
-                            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
-                            <img src="https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?auto=format&fit=crop&w=800&q=80" alt="Reel Thumbnail" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-110">
-                            <div class="absolute z-20 w-14 h-14 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center border border-white/30 group-hover:bg-[#00f2fe] group-hover:border-white transition-colors shadow-lg">
-                                <i class="fab fa-tiktok text-white text-2xl drop-shadow-md"></i>
-                            </div>
-                        </div>
-                        <div class="p-6 relative z-20 -mt-8">
-                            <span class="px-3 py-1 text-xs font-bold bg-[#00f2fe] text-black rounded-full shadow-lg">تصوير وتوجيه شامل</span>
-                            <h3 class="text-xl font-bold text-white mt-4 mb-2">تصوير وإسكربت وتعليق صوتي</h3>
-                            <div class="space-y-3 mt-4 border-t border-white/10 pt-4">
-                                <div class="flex items-start gap-3">
-                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0"><i class="fas fa-video text-blue-400 text-sm"></i></div>
-                                    <div>
-                                        <p class="text-xs text-gray-500 font-semibold">دوري في العمل:</p>
-                                        <p class="text-sm text-gray-300">صورته بنفسي، أشرفت على مونتاجه، عملت الإسكربت والفويس أوفر بالذكاء الاصطناعي.</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-start gap-3">
-                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0"><i class="fas fa-tools text-purple-400 text-sm"></i></div>
-                                    <div>
-                                        <p class="text-xs text-gray-500 font-semibold">الأدوات المستخدمة:</p>
-                                        <p class="text-sm text-gray-300 font-sans" dir="ltr">Camera, AI Voice Tools</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="https://vt.tiktok.com/ZSCJwfg7K/" target="_blank" rel="noopener noreferrer" class="mt-6 w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 hover:bg-white/10 hover:border-white/30 text-white border border-white/10 transition-colors font-semibold text-sm">
-                                مشاهدة الريل عبر TikTok <i class="fas fa-external-link-alt text-xs mt-1"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Reel 11 -->
-                    <div class="glass-panel bg-black/40 rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-brand-primary/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]">
-                        <div class="h-48 relative overflow-hidden bg-gray-900 flex items-center justify-center">
-                            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
-                            <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80" alt="Reel Thumbnail" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-110">
-                            <div class="absolute z-20 w-14 h-14 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center border border-white/30 group-hover:bg-[#00f2fe] group-hover:border-white transition-colors shadow-lg">
-                                <i class="fab fa-tiktok text-white text-2xl drop-shadow-md"></i>
-                            </div>
-                        </div>
-                        <div class="p-6 relative z-20 -mt-8">
-                            <span class="px-3 py-1 text-xs font-bold bg-[#00f2fe] text-black rounded-full shadow-lg">تصميم ومونتاج</span>
-                            <h3 class="text-xl font-bold text-white mt-4 mb-2">تصميم وإنشاء بالكامل</h3>
-                            <div class="space-y-3 mt-4 border-t border-white/10 pt-4">
-                                <div class="flex items-start gap-3">
-                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0"><i class="fas fa-video text-blue-400 text-sm"></i></div>
-                                    <div>
-                                        <p class="text-xs text-gray-500 font-semibold">دوري في العمل:</p>
-                                        <p class="text-sm text-gray-300">قمت بعمله وتصميمه بالكامل بواسطة كانفا.</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-start gap-3">
-                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0"><i class="fas fa-tools text-purple-400 text-sm"></i></div>
-                                    <div>
-                                        <p class="text-xs text-gray-500 font-semibold">الأدوات المستخدمة:</p>
-                                        <p class="text-sm text-gray-300 font-sans" dir="ltr">Canva</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="https://vt.tiktok.com/ZSCJwAb3k/" target="_blank" rel="noopener noreferrer" class="mt-6 w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 hover:bg-white/10 hover:border-white/30 text-white border border-white/10 transition-colors font-semibold text-sm">
-                                مشاهدة الريل عبر TikTok <i class="fas fa-external-link-alt text-xs mt-1"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Reel 12 -->
-                    <div class="glass-panel bg-black/40 rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-brand-primary/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]">
-                        <div class="h-48 relative overflow-hidden bg-gray-900 flex items-center justify-center">
-                            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
-                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="Reel Thumbnail" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-110">
-                            <div class="absolute z-20 w-14 h-14 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center border border-white/30 group-hover:bg-[#00f2fe] group-hover:border-white transition-colors shadow-lg">
-                                <i class="fab fa-tiktok text-white text-2xl drop-shadow-md"></i>
-                            </div>
-                        </div>
-                        <div class="p-6 relative z-20 -mt-8">
-                            <span class="px-3 py-1 text-xs font-bold bg-[#00f2fe] text-black rounded-full shadow-lg">تصميم ومونتاج</span>
-                            <h3 class="text-xl font-bold text-white mt-4 mb-2">تصميم فيديو بالكامل</h3>
-                            <div class="space-y-3 mt-4 border-t border-white/10 pt-4">
-                                <div class="flex items-start gap-3">
-                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0"><i class="fas fa-video text-blue-400 text-sm"></i></div>
-                                    <div>
-                                        <p class="text-xs text-gray-500 font-semibold">دوري في العمل:</p>
-                                        <p class="text-sm text-gray-300">قمت بعمله وتصميمه بالكامل بواسطة كانفا.</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-start gap-3">
-                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0"><i class="fas fa-tools text-purple-400 text-sm"></i></div>
-                                    <div>
-                                        <p class="text-xs text-gray-500 font-semibold">الأدوات المستخدمة:</p>
-                                        <p class="text-sm text-gray-300 font-sans" dir="ltr">Canva</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="https://vt.tiktok.com/ZSCJwmtjw/" target="_blank" rel="noopener noreferrer" class="mt-6 w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 hover:bg-white/10 hover:border-white/30 text-white border border-white/10 transition-colors font-semibold text-sm">
-                                مشاهدة الريل عبر TikTok <i class="fas fa-external-link-alt text-xs mt-1"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Reel 13 -->
-                    <div class="glass-panel bg-black/40 rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-brand-primary/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]">
-                        <div class="h-48 relative overflow-hidden bg-gray-900 flex items-center justify-center">
-                            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
-                            <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=800&q=80" alt="Reel Thumbnail" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-110">
-                            <div class="absolute z-20 w-14 h-14 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center border border-white/30 group-hover:bg-[#00f2fe] group-hover:border-white transition-colors shadow-lg">
-                                <i class="fab fa-tiktok text-white text-2xl drop-shadow-md"></i>
-                            </div>
-                        </div>
-                        <div class="p-6 relative z-20 -mt-8">
-                            <span class="px-3 py-1 text-xs font-bold bg-[#00f2fe] text-black rounded-full shadow-lg">تصميم ومونتاج</span>
-                            <h3 class="text-xl font-bold text-white mt-4 mb-2">إنشاء ريل بالكانفا</h3>
-                            <div class="space-y-3 mt-4 border-t border-white/10 pt-4">
-                                <div class="flex items-start gap-3">
-                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0"><i class="fas fa-video text-blue-400 text-sm"></i></div>
-                                    <div>
-                                        <p class="text-xs text-gray-500 font-semibold">دوري في العمل:</p>
-                                        <p class="text-sm text-gray-300">قمت بعمله وتصميمه بالكامل بواسطة كانفا.</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-start gap-3">
-                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0"><i class="fas fa-tools text-purple-400 text-sm"></i></div>
-                                    <div>
-                                        <p class="text-xs text-gray-500 font-semibold">الأدوات المستخدمة:</p>
-                                        <p class="text-sm text-gray-300 font-sans" dir="ltr">Canva</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="https://vt.tiktok.com/ZSCJwB8yr/" target="_blank" rel="noopener noreferrer" class="mt-6 w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 hover:bg-white/10 hover:border-white/30 text-white border border-white/10 transition-colors font-semibold text-sm">
-                                مشاهدة الريل عبر TikTok <i class="fas fa-external-link-alt text-xs mt-1"></i>
-                            </a>
-                        </div>
-                    </div>
-
-
-                    <!-- ============== THE 5 LATEST REELS ADDED BELOW ============== -->
-
-                    <!-- Latest Reel 1 (ZSCJw7uC1) -->
+                    <!-- 15. TikTok (New 1) -->
                     <div class="glass-panel bg-black/40 rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-brand-primary/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]">
                         <div class="h-48 relative overflow-hidden bg-gray-900 flex items-center justify-center">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
@@ -883,7 +868,7 @@
                         </div>
                     </div>
 
-                    <!-- Latest Reel 2 (ZSCJwGkeY) -->
+                    <!-- 16. TikTok (New 2) -->
                     <div class="glass-panel bg-black/40 rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-brand-primary/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]">
                         <div class="h-48 relative overflow-hidden bg-gray-900 flex items-center justify-center">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
@@ -917,7 +902,7 @@
                         </div>
                     </div>
 
-                    <!-- Latest Reel 3 (ZSCJwGsWh) -->
+                    <!-- 17. TikTok (New 3) -->
                     <div class="glass-panel bg-black/40 rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-brand-primary/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]">
                         <div class="h-48 relative overflow-hidden bg-gray-900 flex items-center justify-center">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
@@ -951,7 +936,7 @@
                         </div>
                     </div>
 
-                    <!-- Latest Reel 4 (ZSCJwTgbT) -->
+                    <!-- 18. TikTok (New 4) -->
                     <div class="glass-panel bg-black/40 rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-brand-primary/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]">
                         <div class="h-48 relative overflow-hidden bg-gray-900 flex items-center justify-center">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
@@ -985,7 +970,7 @@
                         </div>
                     </div>
 
-                    <!-- Latest Reel 5 (ZSC2HVUqN) -->
+                    <!-- 19. TikTok (New 5) -->
                     <div class="glass-panel bg-black/40 rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-brand-primary/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]">
                         <div class="h-48 relative overflow-hidden bg-gray-900 flex items-center justify-center">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
@@ -1019,17 +1004,56 @@
                         </div>
                     </div>
 
+                    <!-- 20. TikTok (New 6 AI) -->
+                    <div class="glass-panel bg-black/40 rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-brand-primary/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]">
+                        <div class="h-48 relative overflow-hidden bg-gray-900 flex items-center justify-center">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
+                            <img src="https://images.unsplash.com/photo-1589254065878-42c9da997008?auto=format&fit=crop&w=800&q=80" alt="Reel Thumbnail" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-110">
+                            <div class="absolute z-20 w-14 h-14 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center border border-white/30 group-hover:bg-[#00f2fe] group-hover:border-white transition-colors shadow-lg">
+                                <i class="fab fa-tiktok text-white text-2xl drop-shadow-md"></i>
+                            </div>
+                        </div>
+                        <div class="p-6 relative z-20 -mt-8">
+                            <span class="px-3 py-1 text-xs font-bold bg-[#00f2fe] text-black rounded-full shadow-lg">إشراف وذكاء اصطناعي</span>
+                            <h3 class="text-xl font-bold text-white mt-4 mb-2">كتابة إسكربت وتعليق صوتي (AI)</h3>
+                            <div class="space-y-3 mt-4 border-t border-white/10 pt-4">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0"><i class="fas fa-video text-blue-400 text-sm"></i></div>
+                                    <div>
+                                        <p class="text-xs text-gray-500 font-semibold">دوري في العمل:</p>
+                                        <p class="text-sm text-gray-300">أشرفت عليه وعملت الإسكربت الخاص به والفويس أوفر باستخدام الذكاء الاصطناعي.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0"><i class="fas fa-tools text-purple-400 text-sm"></i></div>
+                                    <div>
+                                        <p class="text-xs text-gray-500 font-semibold">الأدوات المستخدمة:</p>
+                                        <p class="text-sm text-gray-300 font-sans" dir="ltr">AI Voice Tools, Scripting</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="https://vt.tiktok.com/ZSCJwfwT5/" target="_blank" rel="noopener noreferrer" class="mt-6 w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 hover:bg-white/10 hover:border-white/30 text-white border border-white/10 transition-colors font-semibold text-sm">
+                                مشاهدة الريل عبر TikTok <i class="fas fa-external-link-alt text-xs mt-1"></i>
+                            </a>
+                        </div>
+                    </div>
+
                 </div> <!-- End Reels Grid -->
             </div>
         </div>
 
         <!-- ========================================== -->
-        <!-- FLOATING UPDATE NOTIFICATION BOX (SLEEK PILL VERSION) -->
+        <!-- FLOATING UPDATE NOTIFICATION BOX (MINIMAL & CHIC) -->
         <!-- ========================================== -->
-        <div class="notice-box fixed bottom-6 left-1/2 transform -translate-x-1/2 z-[110] w-[90%] sm:w-auto max-w-md">
-            <div class="glass-panel bg-black/85 border border-brand-primary/50 px-5 py-3 rounded-full flex items-center justify-center gap-3 shadow-[0_0_15px_rgba(59,130,246,0.3)] backdrop-blur-xl arabic-text">
-                <i class="fas fa-sync-alt animate-spin text-brand-primary text-sm shrink-0"></i>
-                <span class="text-white font-semibold text-xs md:text-sm text-center">الملف تحت التحديث، يضاف جديد كل ٢٨ ساعة</span>
+        <div class="fixed bottom-4 left-4 z-[110] pointer-events-none">
+            <div class="flex items-center gap-2.5 bg-[#050505]/70 backdrop-blur-md border border-white/10 px-3.5 py-2 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.15)]">
+                <!-- Pinging Dot -->
+                <div class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-primary opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-primary"></span>
+                </div>
+                <!-- Short Chic Text -->
+                <span class="text-gray-300 font-medium text-[11px] arabic-text tracking-wide mt-0.5">تحديث مستمر للأعمال</span>
             </div>
         </div>
 
@@ -1182,17 +1206,6 @@
             if(sectionPos < screenPos && !counterAnimated) {
                 animateCounters();
                 counterAnimated = true;
-            }
-        });
-
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-black/40');
-                navbar.classList.remove('border-b-0');
-            } else {
-                navbar.classList.remove('bg-black/40');
-                navbar.classList.add('border-b-0');
             }
         });
     </script>
