@@ -455,27 +455,25 @@
                     </div>
 
                     <script>
-                        // ضع روابط الصور المرفوعة من الاستضافة هنا بين علامتي التنصيص
+                        // أسماء الصور المرفوعة (ستظهر تلقائياً إذا وضعتها في نفس المجلد مع ملف HTML)
                         const campaignImages = [
-                            "رابط_الصورة_الأولى_هنا", 
-                            "رابط_الصورة_الثانية_هنا",
-                            "رابط_الصورة_الثالثة_هنا",
-                            "رابط_الصورة_الرابعة_هنا",
-                            "رابط_الصورة_الخامسة_هنا",
-                            "رابط_الصورة_السادسة_هنا",
-                            "رابط_الصورة_السابعة_هنا",
-                            "رابط_الصورة_الثامنة_هنا",
-                            "رابط_الصورة_التاسعة_هنا"
+                            "IMG-20260716-WA0007.jpg",
+                            "IMG-20260716-WA0008.jpg",
+                            "IMG-20260716-WA0009.jpg",
+                            "IMG-20260716-WA0011.jpg",
+                            "IMG-20260716-WA0012.jpg",
+                            "IMG-20260716-WA0013.jpg",
+                            "IMG-20260716-WA0015.jpg",
+                            "IMG-20260716-WA0016.jpg",
+                            "IMG-20260716-WA0017.jpg"
                         ];
                         
-                        campaignImages.forEach((imgSrc, index) => {
-                            // استخدام صورة افتراضية (Placeholder) في حال عدم إضافة الرابط بعد
-                            let finalSrc = (imgSrc.includes("رابط_الصورة")) ? `https://via.placeholder.com/800x400/0a0a0a/3b82f6?text=Image+${index+1}` : imgSrc;
-
+                        campaignImages.forEach((imgSrc) => {
                             document.write(`
                                 <div class="glass-panel bg-black/40 p-2 rounded-2xl overflow-hidden group hover:-translate-y-1 transition-all duration-300 border border-white/5 hover:border-brand-primary/50 hover:shadow-[0_0_25px_rgba(59,130,246,0.2)]">
-                                    <div class="w-full relative overflow-hidden rounded-xl bg-[#0a0a0a] flex items-center justify-center border border-white/10 aspect-video">
-                                        <img src="${finalSrc}" alt="نتائج الحملة الإعلانية" class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500" loading="lazy">
+                                    <div class="w-full h-48 md:h-56 relative overflow-hidden rounded-xl bg-[#050505] flex items-center justify-center border border-white/10 p-2">
+                                        <!-- استخدمت object-contain لكي لا يتم قص الاحصائيات وتكون قابلة للقراءة بالكامل -->
+                                        <img src="${imgSrc}" alt="نتائج الحملة الإعلانية" class="max-w-full max-h-full object-contain group-hover:scale-[1.05] transition-transform duration-500" loading="lazy">
                                     </div>
                                 </div>
                             `);
