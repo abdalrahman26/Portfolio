@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abdelrahman Al-Oqaily | Portfolio</title>
+    <title>Abdelrahman Mohamed (Al-Oqaily) | Marketing & Growth Expert</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Cairo:wght@400;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Cairo:wght@400;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -30,7 +29,6 @@
             }
         }
     </script>
-
     <script type="text/javascript">
             (function (c, l, a, r, i, t, y) {
                 c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
@@ -45,12 +43,10 @@
             color: #ffffff;
             overflow-x: hidden;
         }
-
         .arabic-text {
             font-family: 'Cairo', sans-serif;
             direction: rtl;
         }
-
         #canvas-container {
             position: fixed;
             top: 0;
@@ -61,7 +57,6 @@
             opacity: 0.6;
             pointer-events: none;
         }
-
         .glass-panel {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(12px);
@@ -69,51 +64,42 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
-
         .text-gradient {
             background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
         /* Scroll Reveal Animation Classes */
         .reveal {
             opacity: 0;
             transform: translateY(40px);
             transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
         }
-
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
-
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
-
         ::-webkit-scrollbar-track {
             background: #050505;
         }
-
         ::-webkit-scrollbar-thumb {
             background: #3b82f6;
             border-radius: 4px;
         }
-
         /* Tab Buttons */
         .tab-btn {
             position: relative;
             transition: all 0.3s ease;
         }
-
         .tab-btn.active {
             color: #fff;
             background: rgba(59, 130, 246, 0.2);
             border-color: rgba(59, 130, 246, 0.5);
         }
-
         .tab-btn.active::after {
             content: '';
             position: absolute;
@@ -125,73 +111,60 @@
             box-shadow: 0 0 10px #3b82f6;
             border-radius: 2px;
         }
-
         /* Notice Box Animation - Sleek Pill Version */
         @keyframes alertAnimation {
-
             0%,
             100% {
                 opacity: 0;
                 transform: translate(-50%, 20px) scale(0.95);
             }
-
             15%,
             85% {
                 opacity: 1;
                 transform: translate(-50%, 0) scale(1);
             }
-
             50% {
                 opacity: 1;
                 transform: translate(-50%, -3px) scale(1.02);
                 box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
             }
         }
-
         .notice-box {
             animation: alertAnimation 7s ease-in-out infinite;
             pointer-events: none;
         }
-
         /* Hero Button Animation (Pulse + Shine) */
         @keyframes shine {
             0% {
                 left: -100%;
             }
-
             20% {
                 left: 100%;
             }
-
             100% {
                 left: 100%;
             }
         }
-
         @keyframes pulseShadow {
             0% {
                 box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
                 transform: scale(1);
             }
-
             50% {
                 box-shadow: 0 0 35px rgba(37, 99, 235, 0.8), inset 0 0 10px rgba(255, 255, 255, 0.2);
                 transform: scale(1.03);
             }
-
             100% {
                 box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
                 transform: scale(1);
             }
         }
-
         .btn-animate {
             position: relative;
             overflow: hidden;
             animation: pulseShadow 2s infinite;
             border: 1px solid rgba(139, 92, 246, 0.3);
         }
-
         .btn-animate::before {
             content: '';
             position: absolute;
@@ -205,330 +178,349 @@
         }
     </style>
 </head>
-
 <body class="antialiased selection:bg-brand-primary selection:text-white">
-
     <!-- 3D Background -->
     <div id="canvas-container"></div>
-
     <!-- Navigation -->
     <nav class="fixed w-full z-40 glass-panel border-b-0 border-white/10 transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <div class="flex-shrink-0 font-bold text-2xl tracking-tighter">
+                <div class="flex-shrink-0 font-bold text-xl sm:text-2xl tracking-tighter">
                     A. AL-OQAILY<span class="text-brand-primary">.</span>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#home"
-                            class="hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
-                        <a href="#stats"
-                            class="hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Impact</a>
-                        <a href="#experience"
-                            class="hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Experience</a>
-                        <button onclick="openGallery()"
-                            class="hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer">Portfolio
-                            Gallery</button>
+                        <a href="#home" class="hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                        <a href="#stats" class="hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Impact</a>
+                        <a href="#experience" class="hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Experience</a>
+                        <a href="#skills" class="hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Skills</a>
+                        <button onclick="openGallery()" class="hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer">Portfolio Gallery</button>
                     </div>
                 </div>
-                <a href="#contact"
-                    class="hidden md:inline-flex items-center justify-center px-6 py-2.5 border border-transparent text-sm font-medium rounded-full text-white bg-brand-primary hover:bg-blue-700 transition-all transform hover:scale-105">
-                    Let's Talk
-                </a>
+                <div class="flex items-center gap-3">
+                    <a href="https://www.linkedin.com/in/abdelrahman-aluqeily-a27bb4282" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center justify-center w-10 h-10 rounded-full glass-panel hover:text-brand-primary hover:border-brand-primary transition-colors text-gray-300">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#contact" class="inline-flex items-center justify-center px-5 sm:px-6 py-2.5 border border-transparent text-sm font-medium rounded-full text-white bg-brand-primary hover:bg-blue-700 transition-all transform hover:scale-105 shadow-[0_0_15px_rgba(59,130,246,0.4)]">
+                        Let's Talk
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
-
     <!-- Hero Section -->
     <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-screen flex items-center">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <div
-                class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel text-sm text-blue-300 mb-8 reveal">
+            
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel text-xs sm:text-sm text-blue-300 mb-8 reveal border border-blue-500/30 shadow-[0_0_20px_rgba(59,130,246,0.2)]">
                 <span class="w-2 h-2 rounded-full bg-brand-primary animate-pulse"></span>
-                Marketing Manager & Media Buyer
+                Marketing & Growth Expert • Media Production Manager
             </div>
-            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 reveal" style="transition-delay: 100ms;">
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-6 reveal" style="transition-delay: 100ms;">
                 Driving Growth Through <br class="hidden md:block">
-                <span class="text-gradient">Data & Strategy</span>
+                <span class="text-gradient">Data, Media & Strategy</span>
             </h1>
-            <p class="mt-4 max-w-2xl text-lg md:text-xl text-gray-400 mx-auto mb-10 reveal"
-                style="transition-delay: 200ms;">
-                Over 6 years of expertise in digital strategies, leading content operations, and overseeing technical
-                projects from negotiation to launch.
+            <p class="mt-4 max-w-3xl text-base sm:text-lg md:text-xl text-gray-400 mx-auto mb-10 reveal leading-relaxed" style="transition-delay: 200ms;">
+                Directing <span class="text-white font-semibold">11+ team members</span> across Creative, Media Production & Digital Operations. Generated over <span class="text-blue-400 font-semibold">+1.5M EGP in direct revenue</span>, scaled annual campaigns to <span class="text-blue-400 font-semibold">+3M EGP</span>, and built robust educational platforms from pricing to full launch.
             </p>
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 reveal"
-                style="transition-delay: 300ms;">
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 reveal" style="transition-delay: 300ms;">
                 <!-- Animated Hero Button -->
-                <button onclick="openGallery()"
-                    class="btn-animate w-full sm:w-auto px-10 py-4 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold transition-all flex items-center justify-center gap-3 text-lg">
+                <button onclick="openGallery()" class="btn-animate w-full sm:w-auto px-10 py-4 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold transition-all flex items-center justify-center gap-3 text-base sm:text-lg">
                     <i class="fas fa-layer-group"></i>
-                    View My Work
+                    View My Work & Portfolio
                 </button>
+                <a href="https://www.linkedin.com/in/abdelrahman-aluqeily-a27bb4282" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 rounded-full glass-panel hover:bg-white/10 text-white font-semibold transition-all flex items-center justify-center gap-2 text-base border border-white/10">
+                    <i class="fab fa-linkedin text-blue-400 text-lg"></i>
+                    LinkedIn Profile
+                </a>
+            </div>
+            <!-- Quick Info Badges -->
+            <div class="mt-14 flex flex-wrap justify-center items-center gap-4 sm:gap-8 text-xs sm:text-sm text-gray-400 reveal" style="transition-delay: 400ms;">
+                <span class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-brand-primary"></i> 6th of October City - Giza, Egypt</span>
+                <span class="flex items-center gap-2"><i class="fas fa-users-gear text-brand-secondary"></i> Managing 11+ Specialists</span>
+                <span class="flex items-center gap-2"><i class="fas fa-graduation-cap text-blue-400"></i> Al-Azhar University Graduate</span>
             </div>
         </div>
     </section>
-
     <!-- Stats Section -->
     <section id="stats" class="py-20 border-t border-white/5 relative z-10 bg-black/40">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                <div class="glass-panel p-8 rounded-2xl reveal">
-                    <div
-                        class="text-4xl md:text-5xl font-extrabold text-white mb-2 flex justify-center items-baseline gap-1">
-                        +<span class="counter" data-target="3">0</span>M <span class="text-xl text-gray-400">EGP</span>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                
+                <div class="glass-panel p-6 rounded-2xl reveal">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white mb-2 flex justify-center items-baseline gap-1">
+                        +<span class="counter" data-target="3">0</span>M <span class="text-base text-gray-400">EGP</span>
                     </div>
-                    <div class="text-gray-400 font-medium">Total Sales Generated</div>
-                    <div class="text-sm text-gray-500 mt-2">Across successful campaigns</div>
+                    <div class="text-gray-300 font-semibold text-sm">Campaign Revenue</div>
+                    <div class="text-xs text-gray-500 mt-1">Generated per year</div>
                 </div>
-                <div class="glass-panel p-8 rounded-2xl reveal" style="transition-delay: 100ms;">
-                    <div
-                        class="text-4xl md:text-5xl font-extrabold text-white mb-2 flex justify-center items-baseline gap-1">
+                <div class="glass-panel p-6 rounded-2xl reveal" style="transition-delay: 100ms;">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white mb-2 flex justify-center items-baseline gap-1">
+                        +<span class="counter" data-target="1500">0</span>k <span class="text-base text-gray-400">EGP</span>
+                    </div>
+                    <div class="text-gray-300 font-semibold text-sm">Direct Ad Revenue</div>
+                    <div class="text-xs text-gray-500 mt-1">Across high-converting funnels</div>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl reveal" style="transition-delay: 200ms;">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white mb-2 flex justify-center items-baseline gap-1">
                         +<span class="counter" data-target="3000">0</span>
                     </div>
-                    <div class="text-gray-400 font-medium">High-Quality Leads</div>
-                    <div class="text-sm text-gray-500 mt-2">For high-ticket courses</div>
+                    <div class="text-gray-300 font-semibold text-sm">High-Quality Leads</div>
+                    <div class="text-xs text-gray-500 mt-1">251–500 targeted leads/month</div>
                 </div>
-                <div class="glass-panel p-8 rounded-2xl reveal" style="transition-delay: 200ms;">
-                    <div
-                        class="text-4xl md:text-5xl font-extrabold text-white mb-2 flex justify-center items-baseline gap-1">
-                        <span class="counter" data-target="30">0</span>-<span class="counter" data-target="60">0</span>
-                        <span class="text-xl text-gray-400">EGP</span>
+                <div class="glass-panel p-6 rounded-2xl reveal" style="transition-delay: 300ms;">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white mb-2 flex justify-center items-baseline gap-1">
+                        <span class="counter" data-target="30">0</span>-<span class="counter" data-target="60">0</span> <span class="text-base text-gray-400">EGP</span>
                     </div>
-                    <div class="text-gray-400 font-medium">Message Cost Maintained</div>
-                    <div class="text-sm text-gray-500 mt-2">For courses valued > 50k EGP</div>
+                    <div class="text-gray-300 font-semibold text-sm">Target Message Cost</div>
+                    <div class="text-xs text-gray-500 mt-1">For courses valued > 50,000 EGP</div>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- Experience Section -->
     <section id="experience" class="py-24 relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-5xl font-bold mb-16 text-center reveal">Professional <span
-                    class="text-gradient">Experience</span></h2>
-
-            <div
-                class="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-brand-primary before:to-transparent">
-
-                <!-- Role 1 -->
-                <div
-                    class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal">
-                    <div
-                        class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-gray-900 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10">
+            <h2 class="text-3xl md:text-5xl font-bold mb-16 text-center reveal">Professional <span class="text-gradient">Experience</span></h2>
+            <div class="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-brand-primary before:to-transparent">
+                <!-- Role 1: Marketing & Media Production Manager -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-gray-900 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10">
                         <div class="w-3 h-3 bg-brand-primary rounded-full shadow-[0_0_10px_#3b82f6]"></div>
                     </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-panel p-6 rounded-2xl">
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-panel p-6 rounded-2xl border border-blue-500/20">
                         <div class="flex flex-col xl:flex-row justify-between items-start mb-4 gap-2">
                             <div>
                                 <h3 class="font-bold text-xl text-white">Marketing & Media Production Manager</h3>
-                                <p class="text-brand-primary font-medium">Al-Nokhba International Academy</p>
+                                <p class="text-brand-primary font-medium">Al-Nokhba International Academy for Training & Development</p>
                             </div>
-                            <span
-                                class="text-xs text-gray-400 font-semibold bg-white/5 px-3 py-1 rounded-full border border-white/10 whitespace-nowrap">03/2026
-                                - Present</span>
+                            <span class="text-xs text-gray-400 font-semibold bg-white/5 px-3 py-1 rounded-full border border-white/10 whitespace-nowrap">01/2025 - Present</span>
                         </div>
+                        <p class="text-xs text-blue-300 font-semibold mb-3">Directly managing 11+ specialists across Creative, Media & Production, and Digital Operations:</p>
                         <ul class="text-sm text-gray-300 space-y-2 list-none">
-                            <li class="flex items-start"><i
-                                    class="fas fa-check text-brand-primary mt-1 mr-2 text-xs"></i> <span>Directly
-                                    managing Creative, Media & Production, and Digital Operations teams.</span></li>
-                            <li class="flex items-start"><i
-                                    class="fas fa-check text-brand-primary mt-1 mr-2 text-xs"></i> <span>Developing
-                                    annual marketing strategies, allocating budgets, and monitoring ROI.</span></li>
-                            <li class="flex items-start"><i
-                                    class="fas fa-check text-brand-primary mt-1 mr-2 text-xs"></i> <span>Launching paid
-                                    campaigns, overseeing SEO, and providing deep analytical reporting.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-brand-primary mt-1 mr-2 text-xs"></i> <span><strong>Strategic Planning & Budgets:</strong> Executing annual/monthly growth strategies, allocating budgets, and tracking ROI for +3M EGP campaigns.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-brand-primary mt-1 mr-2 text-xs"></i> <span><strong>Media Production & Creative Direction:</strong> Leading video, photo, and audio production processes from concept and scriptwriting to final cut.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-brand-primary mt-1 mr-2 text-xs"></i> <span><strong>Digital Platforms & SEO:</strong> Supervising paid Meta/Google campaigns and overseeing organic SEO growth strategies.</span></li>
                         </ul>
                     </div>
                 </div>
-
-                <!-- Role 2 -->
-                <div
-                    class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal">
-                    <div
-                        class="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 bg-gray-900 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10">
+                <!-- Role 2: Media Buyer -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 bg-gray-900 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10">
                         <div class="w-3 h-3 bg-brand-secondary rounded-full shadow-[0_0_10px_#8b5cf6]"></div>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-panel p-6 rounded-2xl border border-purple-500/20">
+                        <div class="flex flex-col xl:flex-row justify-between items-start mb-4 gap-2">
+                            <div>
+                                <h3 class="font-bold text-xl text-white">Media Buyer & Digital Operations</h3>
+                                <p class="text-brand-secondary font-medium">Al-Nokhba International Academy</p>
+                            </div>
+                            <span class="text-xs text-gray-400 font-semibold bg-white/5 px-3 py-1 rounded-full border border-white/10 whitespace-nowrap">05/2024 - Present</span>
+                        </div>
+                        <ul class="text-sm text-gray-300 space-y-2 list-none">
+                            <li class="flex items-start"><i class="fas fa-check text-brand-secondary mt-1 mr-2 text-xs"></i> <span>Generated over <strong>EGP 1.5 million in direct revenue</strong> and 3,000+ qualified high-ticket leads.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-brand-secondary mt-1 mr-2 text-xs"></i> <span>Converted main Instagram account from 8,000 fake to <strong>3,000+ authentic, highly engaged followers</strong>.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-brand-secondary mt-1 mr-2 text-xs"></i> <span>Supervised full development of the academy's educational platform & internal SharePoint ecosystem.</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Role 3: Content Strategist & Consultant -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 bg-gray-900 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10">
+                        <div class="w-3 h-3 bg-cyan-400 rounded-full shadow-[0_0_10px_#22d3ee]"></div>
                     </div>
                     <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-panel p-6 rounded-2xl">
                         <div class="flex flex-col xl:flex-row justify-between items-start mb-4 gap-2">
                             <div>
-                                <h3 class="font-bold text-xl text-white">Media Buyer</h3>
-                                <p class="text-brand-secondary font-medium">Al-Nokhba International Academy</p>
+                                <h3 class="font-bold text-xl text-white">Content Strategist & Marketing Consultant</h3>
+                                <p class="text-cyan-400 font-medium">Leadership Artery Institute & Dr. Sherine Hosny</p>
                             </div>
-                            <span
-                                class="text-xs text-gray-400 font-semibold bg-white/5 px-3 py-1 rounded-full border border-white/10 whitespace-nowrap">05/2024
-                                - Present</span>
+                            <span class="text-xs text-gray-400 font-semibold bg-white/5 px-3 py-1 rounded-full border border-white/10 whitespace-nowrap">01/2025 - Remote</span>
                         </div>
-                        <ul class="text-sm text-gray-300 space-y-2 list-none">
-                            <li class="flex items-start"><i
-                                    class="fas fa-check text-brand-secondary mt-1 mr-2 text-xs"></i> <span>Converted IG
-                                    account from 8k fake to 3k+ real, active followers.</span></li>
-                            <li class="flex items-start"><i
-                                    class="fas fa-check text-brand-secondary mt-1 mr-2 text-xs"></i> <span>Built &
-                                    supervised a full educational platform with a software company.</span></li>
-                            <li class="flex items-start"><i
-                                    class="fas fa-check text-brand-secondary mt-1 mr-2 text-xs"></i> <span>Created and
-                                    optimized Meta ad campaigns, and wrote marketing copy.</span></li>
-                        </ul>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Developed comprehensive one-year marketing and content strategies, aligned workflows with institutional objectives, and guided creative execution to achieve measurable growth.
+                        </p>
                     </div>
                 </div>
-
-                <!-- Role 3 -->
-                <div
-                    class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal">
-                    <div
-                        class="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 bg-gray-900 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10">
+                <!-- Role 4: Social Media Specialist & Graphic Designer -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 bg-gray-900 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10">
                         <div class="w-3 h-3 bg-gray-500 rounded-full"></div>
                     </div>
                     <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-panel p-6 rounded-2xl">
                         <div class="flex flex-col xl:flex-row justify-between items-start mb-4 gap-2">
                             <div>
-                                <h3 class="font-bold text-xl text-white">Social Media Specialist</h3>
-                                <p class="text-gray-400 font-medium">Al-Nokhba International Academy</p>
+                                <h3 class="font-bold text-xl text-white">Social Media Specialist & Graphic Designer</h3>
+                                <p class="text-gray-400 font-medium">Sheraa & Eagle Company</p>
                             </div>
-                            <span
-                                class="text-xs text-gray-400 font-semibold bg-white/5 px-3 py-1 rounded-full border border-white/10 whitespace-nowrap">12/2023
-                                - 04/2025</span>
+                            <span class="text-xs text-gray-400 font-semibold bg-white/5 px-3 py-1 rounded-full border border-white/10 whitespace-nowrap">11/2021 - 11/2024</span>
                         </div>
                         <p class="text-gray-400 text-sm leading-relaxed">
-                            Managed daily content operations, analyzed metrics, and improved content results. Nominated
-                            for Team Leader within 6 months due to exceptional performance.
+                            Formulated omnichannel content strategies, coordinated cross-platform designs, and analyzed KPI engagement metrics. Nominated for Team Leader within 6 months due to exceptional performance.
                         </p>
                     </div>
                 </div>
-
-                <!-- Role 4 -->
-                <div
-                    class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal">
-                    <div
-                        class="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 bg-gray-900 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10">
-                        <div class="w-3 h-3 bg-gray-600 rounded-full"></div>
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-panel p-6 rounded-2xl">
-                        <div class="flex flex-col xl:flex-row justify-between items-start mb-4 gap-2">
-                            <div>
-                                <h3 class="font-bold text-xl text-white">Social Media Specialist</h3>
-                                <p class="text-gray-400 font-medium">Eagle Company</p>
-                            </div>
-                            <span
-                                class="text-xs text-gray-400 font-semibold bg-white/5 px-3 py-1 rounded-full border border-white/10 whitespace-nowrap">11/2021
-                                - 09/2023</span>
-                        </div>
-                        <p class="text-gray-400 text-sm leading-relaxed">
-                            Managed social media accounts, driving real engagement growth. Analyzed campaign outcomes
-                            and coordinated designs.
-                        </p>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
-
+    <!-- Skills & Core Competencies Section -->
+    <section id="skills" class="py-20 border-t border-white/5 relative z-10 bg-black/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-5xl font-bold mb-16 text-center reveal">Core <span class="text-gradient">Capabilities & Tech Stack</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Growth & Performance -->
+                <div class="glass-panel p-6 rounded-2xl reveal">
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center mb-5 text-blue-400 text-xl">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Growth & Performance</h3>
+                    <ul class="text-sm text-gray-400 space-y-2">
+                        <li>• Performance Marketing & Media Buying</li>
+                        <li>• Campaign Optimization & ROI Analysis</li>
+                        <li>• Lead Generation & Retargeting Funnels</li>
+                        <li>• Conversion Tracking & A/B Testing</li>
+                        <li>• Customer Acquisition Strategy</li>
+                    </ul>
+                </div>
+                <!-- Brand & Media Production -->
+                <div class="glass-panel p-6 rounded-2xl reveal" style="transition-delay: 100ms;">
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center mb-5 text-purple-400 text-xl">
+                        <i class="fas fa-microphone-lines"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Media Production & Content</h3>
+                    <ul class="text-sm text-gray-400 space-y-2">
+                        <li>• End-to-End Audio Drama & Podcast Production</li>
+                        <li>• Professional Voice-Over & Sound Design</li>
+                        <li>• Creative Direction & Video Storyboarding</li>
+                        <li>• Ad Copywriting & Marketing Scripts</li>
+                        <li>• Cross-Functional Team Leadership (11+)</li>
+                    </ul>
+                </div>
+                <!-- Tools, Systems & AI -->
+                <div class="glass-panel p-6 rounded-2xl reveal" style="transition-delay: 200ms;">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center mb-5 text-cyan-400 text-xl">
+                        <i class="fas fa-cubes"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Tools, Analytics & AI</h3>
+                    <ul class="text-sm text-gray-400 space-y-2">
+                        <li>• Meta Ads Manager & TikTok Ads Manager</li>
+                        <li>• Google Analytics (GA4) & Looker Studio</li>
+                        <li>• Microsoft SharePoint & Digital Governance</li>
+                        <li>• Audition, Audacity, Canva, Premiere</li>
+                        <li>• AI-Driven Workflows (Gemini, ChatGPT, Gamma)</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Education & Certifications Row -->
+            <div class="mt-12 glass-panel p-6 sm:p-8 rounded-2xl border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 reveal">
+                <div class="flex items-center gap-4">
+                    <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl text-brand-primary shrink-0">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-white">Education & Professional Certifications</h4>
+                        <p class="text-sm text-gray-400 mt-1">
+                            Bachelor's in Usul al-Din (Al-Azhar University - Grade: Very Good) • Coursera Social Media Management • Abdullah Rashed Media Buying
+                        </p>
+                    </div>
+                </div>
+                <button onclick="openGallery()" class="px-6 py-2.5 rounded-full bg-brand-primary hover:bg-blue-600 text-white font-bold text-sm transition-all shrink-0">
+                    Explore Portfolio Gallery
+                </button>
+            </div>
+        </div>
+    </section>
     <!-- Footer / Contact -->
-    <footer id="contact" class="py-12 border-t border-white/10 relative z-10 bg-black">
+    <footer id="contact" class="py-16 border-t border-white/10 relative z-10 bg-black">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
-            <h2 class="text-3xl font-bold mb-8">Ready to Scale? <span class="text-gradient">Let's Connect.</span></h2>
-
+            <h2 class="text-3xl sm:text-4xl font-bold mb-4">Ready to Scale Your Growth? <span class="text-gradient">Let's Connect.</span></h2>
+            <p class="text-gray-400 text-sm sm:text-base max-w-xl mx-auto mb-10">
+                Available for full-time leadership roles, growth consultations, and media production projects.
+            </p>
             <div class="flex flex-wrap justify-center items-center gap-4 mb-10">
-                <a href="mailto:ABDALRAHMAN2610@GMAIL.COM"
-                    class="flex items-center gap-2 text-gray-300 hover:text-brand-primary transition-colors bg-white/5 px-6 py-3 rounded-full border border-white/10">
-                    <i class="fas fa-envelope"></i>
+                <a href="mailto:ABDALRAHMAN2610@GMAIL.COM" class="flex items-center gap-2 text-gray-300 hover:text-brand-primary transition-colors bg-white/5 px-6 py-3 rounded-full border border-white/10 text-xs sm:text-sm">
+                    <i class="fas fa-envelope text-brand-primary"></i>
                     ABDALRAHMAN2610@GMAIL.COM
                 </a>
-                <a href="tel:01033869376"
-                    class="flex items-center gap-2 text-gray-300 hover:text-brand-primary transition-colors bg-white/5 px-6 py-3 rounded-full border border-white/10">
-                    <i class="fas fa-phone"></i>
+                <a href="tel:01033869376" class="flex items-center gap-2 text-gray-300 hover:text-brand-primary transition-colors bg-white/5 px-6 py-3 rounded-full border border-white/10 text-xs sm:text-sm">
+                    <i class="fas fa-phone text-green-400"></i>
                     01033869376
                 </a>
-                <a href="https://abdalrahman26.github.io/Portfolio" target="_blank" rel="noopener noreferrer"
-                    class="flex items-center gap-2 text-gray-300 hover:text-brand-primary transition-colors bg-white/5 px-6 py-3 rounded-full border border-white/10">
-                    <i class="fab fa-github text-lg"></i>
+                <a href="https://www.linkedin.com/in/abdelrahman-aluqeily-a27bb4282" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-gray-300 hover:text-brand-primary transition-colors bg-white/5 px-6 py-3 rounded-full border border-white/10 text-xs sm:text-sm">
+                    <i class="fab fa-linkedin text-blue-400"></i>
+                    LinkedIn
+                </a>
+                <a href="https://www.youtube.com/@AB-CAST" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-gray-300 hover:text-red-400 transition-colors bg-white/5 px-6 py-3 rounded-full border border-white/10 text-xs sm:text-sm">
+                    <i class="fab fa-youtube text-red-500"></i>
+                    @AB-CAST
+                </a>
+                <a href="https://abdalrahman26.github.io/Portfolio" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-gray-300 hover:text-brand-primary transition-colors bg-white/5 px-6 py-3 rounded-full border border-white/10 text-xs sm:text-sm">
+                    <i class="fab fa-github"></i>
                     abdalrahman26.github.io
                 </a>
             </div>
-            <div class="text-sm text-gray-600">
-                &copy; <span id="year"></span> Abdelrahman Mohamed. All rights reserved.
+            <div class="text-xs sm:text-sm text-gray-600">
+                &copy; <span id="year"></span> Abdelrahman Mohamed (Al-Oqaily). All rights reserved.
             </div>
         </div>
     </footer>
-
     <!-- ========================================== -->
     <!-- PORTFOLIO GALLERY (SEPARATE PAGE VIEW) -->
     <!-- ========================================== -->
     <div id="gallery-page" class="hidden fixed inset-0 z-[100] bg-[#050505] overflow-y-auto w-full h-full">
-
         <!-- Gallery Header -->
-        <div
-            class="sticky top-0 z-50 glass-panel border-b border-white/10 px-4 py-4 sm:px-8 flex items-center justify-between bg-black/80 backdrop-blur-md">
+        <div class="sticky top-0 z-50 glass-panel border-b border-white/10 px-4 py-4 sm:px-8 flex items-center justify-between bg-black/80 backdrop-blur-md">
             <div class="font-bold text-xl tracking-tighter">
                 A. AL-OQAILY<span class="text-brand-primary">.</span>
             </div>
-            <button onclick="closeGallery()"
-                class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 hover:bg-brand-primary text-white font-semibold transition-all border border-white/10 text-sm">
+            <button onclick="closeGallery()" class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 hover:bg-brand-primary text-white font-semibold transition-all border border-white/10 text-sm">
                 <span class="arabic-text">رجوع للصفحة الرئيسية</span>
                 <i class="fas fa-arrow-right"></i>
             </button>
         </div>
-
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 relative">
             <!-- Tabs Header -->
             <div class="flex justify-center items-center pb-8">
                 <div class="flex flex-wrap justify-center gap-2 bg-white/5 p-1.5 rounded-full border border-white/10">
-                    <button onclick="switchTab('plans')" id="btn-plans"
-                        class="tab-btn active px-6 py-2.5 rounded-full text-sm font-bold tracking-wider text-gray-400 uppercase">
+                    <button onclick="switchTab('plans')" id="btn-plans" class="tab-btn active px-6 py-2.5 rounded-full text-sm font-bold tracking-wider text-gray-400 uppercase">
                         Plans
                     </button>
-                    <button onclick="switchTab('reels')" id="btn-reels"
-                        class="tab-btn px-6 py-2.5 rounded-full text-sm font-bold tracking-wider text-gray-400 uppercase">
+                    <button onclick="switchTab('reels')" id="btn-reels" class="tab-btn px-6 py-2.5 rounded-full text-sm font-bold tracking-wider text-gray-400 uppercase">
                         Reels & Media
                     </button>
-                    <button onclick="switchTab('campaigns')" id="btn-campaigns"
-                        class="tab-btn px-6 py-2.5 rounded-full text-sm font-bold tracking-wider text-gray-400 uppercase">
+                    <button onclick="switchTab('campaigns')" id="btn-campaigns" class="tab-btn px-6 py-2.5 rounded-full text-sm font-bold tracking-wider text-gray-400 uppercase">
                         Campaigns
                     </button>
-                    <button onclick="switchTab('posts')" id="btn-posts"
-                        class="tab-btn px-6 py-2.5 rounded-full text-sm font-bold tracking-wider text-gray-400 uppercase">
+                    <button onclick="switchTab('posts')" id="btn-posts" class="tab-btn px-6 py-2.5 rounded-full text-sm font-bold tracking-wider text-gray-400 uppercase">
                         Posts
                     </button>
-                    <button onclick="switchTab('carousels')" id="btn-carousels"
-                        class="tab-btn px-6 py-2.5 rounded-full text-sm font-bold tracking-wider text-gray-400 uppercase">
+                    <button onclick="switchTab('carousels')" id="btn-carousels" class="tab-btn px-6 py-2.5 rounded-full text-sm font-bold tracking-wider text-gray-400 uppercase">
                         Carousels
                     </button>
                 </div>
             </div>
-
             <!-- Tabs Content Area -->
             <div class="relative min-h-[60vh] flex flex-col">
-
-                <div
-                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-brand-primary/10 blur-[150px] rounded-full pointer-events-none z-0">
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-brand-primary/10 blur-[150px] rounded-full pointer-events-none z-0">
                 </div>
-
                 <!-- 1. PLANS TAB CONTENT -->
-                <div id="content-plans"
-                    class="flex-1 flex flex-col items-center justify-center text-center arabic-text relative z-10 animate-fade-in py-10 md:py-20">
-                    <div
-                        class="w-24 h-24 rounded-full bg-blue-500/10 border border-blue-500/30 flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(59,130,246,0.3)] animate-pulse">
+                <div id="content-plans" class="flex-1 flex flex-col items-center justify-center text-center arabic-text relative z-10 animate-fade-in py-10 md:py-20">
+                    <div class="w-24 h-24 rounded-full bg-blue-500/10 border border-blue-500/30 flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(59,130,246,0.3)] animate-pulse">
                         <i class="fab fa-google-drive text-5xl text-blue-400"></i>
                     </div>
                     <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">تنبيه انتقال إلى مساحة العمل</h2>
                     <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed">
-                        سيتم فتح ملف <span class="text-blue-400 font-semibold">Google Drive</span> يحتوي على جميع الخطط،
-                        التقارير، والاستراتيجيات الفنية الخاصة بي.
+                        سيتم فتح ملف <span class="text-blue-400 font-semibold">Google Drive</span> يحتوي على جميع الخطط، التقارير، والاستراتيجيات الفنية الخاصة بي.
                         <br><br>
-                        <span class="text-sm text-gray-500">يمكنك تصفح الملفات والعودة إلى هذه الصفحة لإكمال استعراض
-                            باقي الأعمال في أي وقت.</span>
+                        <span class="text-sm text-gray-500">يمكنك تصفح الملفات والعودة إلى هذه الصفحة لإكمال استعراض باقي الأعمال في أي وقت.</span>
                     </p>
-                    <a href="https://drive.google.com/drive/folders/1Q8jylhTs2jg9ID2ywMQ9B3UtvwF0KXDd" target="_blank"
-                        rel="noopener noreferrer"
-                        class="px-10 py-4 rounded-full bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-500 hover:to-blue-700 text-white font-bold text-lg transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(37,99,235,0.4)] flex items-center gap-3">
+                    <a href="https://drive.google.com/drive/folders/1Q8jylhTs2jg9ID2ywMQ9B3UtvwF0KXDd" target="_blank" rel="noopener noreferrer" class="px-10 py-4 rounded-full bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-500 hover:to-blue-700 text-white font-bold text-lg transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(37,99,235,0.4)] flex items-center gap-3">
                         استمرار للخطط <i class="fas fa-arrow-left mt-1"></i>
                     </a>
                 </div>
-
                 <!-- 2. REELS & MEDIA PRODUCTION TAB CONTENT -->
-                <div id="content-reels"
-                    class="hidden arabic-text relative z-10 pb-10 flex flex-col gap-6">
+                <div id="content-reels" class="hidden arabic-text relative z-10 pb-10 flex flex-col gap-6">
                     
                     <!-- Channel Header Banner -->
                     <div class="w-full">
@@ -558,7 +550,6 @@
                             </a>
                         </div>
                     </div>
-
                     <!-- Category Sub-Filters -->
                     <div class="flex flex-wrap items-center justify-center gap-2">
                         <button onclick="filterMedia('all')" id="filter-btn-all" class="media-filter-btn px-5 py-2.5 rounded-full text-xs md:text-sm font-bold bg-brand-primary text-white border border-brand-primary shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all">
@@ -571,12 +562,10 @@
                             <i class="fab fa-tiktok text-cyan-400"></i> ريلز تيك توك وسوشيال ميديا (6)
                         </button>
                     </div>
-
                     <!-- Media Grid Container -->
                     <div id="media-cards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <!-- Rendered Dynamically by JS -->
                     </div>
-
                     <!-- Load More Button -->
                     <div id="load-more-container" class="flex justify-center pt-4">
                         <button onclick="toggleShowAllMedia()" id="btn-load-more" class="px-8 py-3 rounded-full bg-white/10 hover:bg-brand-primary text-white font-bold text-sm transition-all border border-white/15 flex items-center gap-2 shadow-lg">
@@ -584,24 +573,18 @@
                             <i class="fas fa-chevron-down text-xs"></i>
                         </button>
                     </div>
-
                 </div>
-
                 <!-- 3. CAMPAIGNS TAB CONTENT -->
-                <div id="content-campaigns"
-                    class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 arabic-text relative z-10 pb-10">
-
+                <div id="content-campaigns" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 arabic-text relative z-10 pb-10">
                     <!-- Header for 3M+ Sales -->
                     <div class="w-full col-span-1 md:col-span-2 lg:col-span-3 text-center mb-6">
-                        <div
-                            class="inline-block glass-panel bg-blue-600/10 border-blue-500/30 px-8 py-4 rounded-2xl shadow-[0_0_30px_rgba(59,130,246,0.2)]">
+                        <div class="inline-block glass-panel bg-blue-600/10 border-blue-500/30 px-8 py-4 rounded-2xl shadow-[0_0_30px_rgba(59,130,246,0.2)]">
                             <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">نتائج الحملات الإعلانية</h2>
                             <p class="text-brand-primary text-xl font-bold">
                                 أكثر من ٣ مليون جنيه إجمالي مبيعات 🚀
                             </p>
                         </div>
                     </div>
-
                     <script>
                         const campaignImages = [
                             "IMG-20260716-WA0007.jpg",
@@ -614,7 +597,6 @@
                             "IMG-20260716-WA0016.jpg",
                             "IMG-20260716-WA0017.jpg"
                         ];
-
                         campaignImages.forEach((imgSrc) => {
                             document.write(`
                                 <div class="glass-panel bg-black/40 p-2 rounded-2xl overflow-hidden group hover:-translate-y-1 transition-all duration-300 border border-white/5 hover:border-brand-primary/50 hover:shadow-[0_0_25px_rgba(59,130,246,0.2)]">
@@ -626,247 +608,143 @@
                         });
                     </script>
                 </div>
-
-
                 <!-- ======================================================= -->
                 <!--                    4. POSTS TAB CONTENT                 -->
                 <!-- ======================================================= -->
-                <div id="content-posts"
-                    class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 arabic-text relative z-10 pb-10">
-
-
-                    <!-- ========================================================================================= -->
-                    <!--                                 بداية كارد البوست الأول (HR)                              -->
-                    <!-- ========================================================================================= -->
-                    <div
-                        class="glass-panel bg-black/40 rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-brand-primary/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] flex flex-col justify-between">
+                <div id="content-posts" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 arabic-text relative z-10 pb-10">
+                    <!-- كارد البوست الأول (HR) -->
+                    <div class="glass-panel bg-black/40 rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-brand-primary/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] flex flex-col justify-between">
                         <div>
-                            <!-- مساحة الصورة -->
                             <div class="h-56 relative overflow-hidden bg-gray-900 flex items-center justify-center">
-                                <img src="Screenshot 2026-09-01 224845.png"
-                                    alt="Post Image"
-                                    class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-transform duration-500 group-hover:scale-105">
+                                <img src="Screenshot 2026-09-01 224845.png" alt="Post Image" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-transform duration-500 group-hover:scale-105">
                             </div>
-                            <!-- مساحة النصوص -->
                             <div class="p-5">
                                 <h3 class="text-lg font-bold text-white mb-2">دبلومة الـ HR - النخبة</h3>
                                 <p class="text-xs text-gray-400 leading-relaxed mb-3">
-                                    نموذج كتابة محتوى تسويقي (Copywriting) موجه لاستهداف المهنيين وتوليد عملاء محتملين
-                                    للدبلومة.
+                                    نموذج كتابة محتوى تسويقي (Copywriting) موجه لاستهداف المهنيين وتوليد عملاء محتملين للدبلومة.
                                 </p>
-
-                                <!-- صندوق الكابشن المخصص -->
-                                <div
-                                    class="p-3.5 rounded-xl bg-white/[0.04] border border-white/10 text-xs md:text-sm text-gray-300 leading-relaxed whitespace-pre-line shadow-inner">
+                                <div class="p-3.5 rounded-xl bg-white/[0.04] border border-white/10 text-xs md:text-sm text-gray-300 leading-relaxed whitespace-pre-line shadow-inner">
                                     <div class="flex items-center gap-2 mb-2 text-xs font-semibold text-brand-primary">
                                         <i class="fas fa-quote-right"></i>
                                         <span>كابشن المنشور (Copy):</span>
                                     </div>تخيل تنهي هالسنة وأنت بنفس المنصب والراتب..
-                                    سيناريو متعب، صح؟ 🛑
-                                    تقدر تغير هذي النتيجة في أسابيع بسيطة.
-                                    سوق العمل يكافئ الكفاءة المعتمدة
-                                    ودبلومة الـ HR من أكاديمية النخبة هي المفتاح اللي يثبت جدارتك قدام الإدارة.
-                                    👉 لا تأجل تطويرك أكثر. تواصل معنا بالخاص وابدأ تبني قيمتك المهنية الحقيقية.
+سيناريو متعب، صح؟ 🛑
+تقدر تغير هذي النتيجة في أسابيع بسيطة.
+سوق العمل يكافئ الكفاءة المعتمدة
+ودبلومة الـ HR من أكاديمية النخبة هي المفتاح اللي يثبت جدارتك قدام الإدارة.
+👉 لا تأجل تطويرك أكثر. تواصل معنا بالخاص وابدأ تبني قيمتك المهنية الحقيقية.
                                 </div>
                             </div>
                         </div>
-
                         <div class="p-5 pt-0">
-                            <a href="https://www.instagram.com/p/DcOkl-dCJeg/" target="_blank"
-                                class="w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white/5 hover:bg-brand-primary text-gray-300 hover:text-white transition-all text-xs font-bold border border-white/10">
+                            <a href="https://www.instagram.com/p/DcOkl-dCJeg/" target="_blank" class="w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white/5 hover:bg-brand-primary text-gray-300 hover:text-white transition-all text-xs font-bold border border-white/10">
                                 مشاهدة المنشور الأصلي <i class="fas fa-arrow-left text-xs"></i>
                             </a>
                         </div>
                     </div>
-                    <!-- ========================================================================================= -->
-                    <!--                                 نهاية كارد البوست الأول                                  -->
-                    <!-- ========================================================================================= -->
-
-
-                    <!-- ========================================================================================= -->
-                    <!--                                 بداية كارد البوست الثاني (التغذية)                        -->
-                    <!-- ========================================================================================= -->
-                    <div
-                        class="glass-panel bg-black/40 rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-brand-primary/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] flex flex-col justify-between">
+                    <!-- كارد البوست الثاني (التغذية) -->
+                    <div class="glass-panel bg-black/40 rounded-2xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/5 hover:border-brand-primary/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] flex flex-col justify-between">
                         <div>
-                            <!-- مساحة الصورة -->
                             <div class="h-56 relative overflow-hidden bg-gray-900 flex items-center justify-center">
-                                <img src="Screenshot 2026-09-01 235046.png"
-                                    alt="Post Image"
-                                    class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-transform duration-500 group-hover:scale-105">
+                                <img src="Screenshot 2026-09-01 235046.png" alt="Post Image" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-transform duration-500 group-hover:scale-105">
                             </div>
-                            <!-- مساحة النصوص -->
                             <div class="p-5">
                                 <h3 class="text-lg font-bold text-white mb-2">دبلومة التغذية العلاجية - النخبة</h3>
                                 <p class="text-xs text-gray-400 leading-relaxed mb-3">
                                     صياغة إعلانية ونماذج كابشن ترويجية لحجز المحاضرة المجانية في علم التغذية.
                                 </p>
-
-                                <!-- صندوق الكابشن المخصص -->
-                                <div
-                                    class="p-3.5 rounded-xl bg-white/[0.04] border border-white/10 text-xs md:text-sm text-gray-300 leading-relaxed whitespace-pre-line shadow-inner">
+                                <div class="p-3.5 rounded-xl bg-white/[0.04] border border-white/10 text-xs md:text-sm text-gray-300 leading-relaxed whitespace-pre-line shadow-inner">
                                     <div class="flex items-center gap-2 mb-2 text-xs font-semibold text-brand-primary">
                                         <i class="fas fa-quote-right"></i>
                                         <span>كابشن المنشور (Copy):</span>
                                     </div>كل متخصص ناجح كانت له بداية.
-
 إذا كنت مهتمًا بعالم التغذية، فهذه فرصتك لتبدأ بأساس علمي صحيح، وتتعرّف على أهم المفاهيم التي تحتاجها في رحلتك.
-
 المحاضرة الأولى مجانًا.
-
 احجز مكانك الآن، وابدأ أول خطوة بثقة.
-
 ━━━━━━━━━━━━━━
 هل تفكر في دخول مجال التغذية؟
-
 ابدأ من المكان الصحيح، وتعلّم الأساسيات التي يحتاجها كل مهتم بعلم التغذية.
-
 ✅ محتوى علمي.
 ✅ تطبيق عملي.
 المحاضرة الأولى مجانًا.
-
 سجّل الآن، وابدأ رحلتك.
                                 </div>
                             </div>
                         </div>
-
                         <div class="p-5 pt-0">
-                            <a href="https://www.instagram.com/p/DbTPJFZAT0y/" target="_blank"
-                                class="w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white/5 hover:bg-brand-primary text-gray-300 hover:text-white transition-all text-xs font-bold border border-white/10">
+                            <a href="https://www.instagram.com/p/DbTPJFZAT0y/" target="_blank" class="w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white/5 hover:bg-brand-primary text-gray-300 hover:text-white transition-all text-xs font-bold border border-white/10">
                                 مشاهدة المنشور الأصلي <i class="fas fa-arrow-left text-xs"></i>
                             </a>
                         </div>
                     </div>
-                    <!-- ========================================================================================= -->
-                    <!--                                 نهاية كارد البوست الثاني                                 -->
-                    <!-- ========================================================================================= -->
-
                 </div>
-
-
-
                 <!-- ======================================================= -->
                 <!--                  5. CAROUSELS TAB CONTENT               -->
                 <!-- ======================================================= -->
-                <div id="content-carousels"
-                    class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 arabic-text relative z-10 pb-10">
-
-
-                    <!-- ========================================================================================= -->
-                    <!--                                بداية كارد الكاروسيل الأول                                 -->
-                    <!-- ========================================================================================= -->
-                    <div
-                        class="glass-panel bg-black/40 rounded-2xl overflow-hidden group transition-all duration-300 border border-white/5 hover:border-brand-primary/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] flex flex-col justify-between">
-
+                <div id="content-carousels" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 arabic-text relative z-10 pb-10">
+                    <!-- كارد الكاروسيل الأول -->
+                    <div class="glass-panel bg-black/40 rounded-2xl overflow-hidden group transition-all duration-300 border border-white/5 hover:border-brand-primary/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] flex flex-col justify-between">
                         <div>
-                            <!-- حاوية الكاروسيل (الصور والأسهم) -->
-                            <div class="carousel-container relative w-full h-64 md:h-72 bg-[#050505] group/slider flex items-center justify-center"
-                                data-current="0">
-
-                                <!-- الصورة الأولى (تظهر تلقائياً) -->
-                                <div
-                                    class="carousel-slide w-full h-full absolute inset-0 transition-opacity duration-300 opacity-100 z-10 flex items-center justify-center">
-                                    <img src="Screenshot 2026-09-01 234444.png"
-                                        class="w-full h-full object-contain" alt="Carousel Slide 1">
+                            <div class="carousel-container relative w-full h-64 md:h-72 bg-[#050505] group/slider flex items-center justify-center" data-current="0">
+                                <div class="carousel-slide w-full h-full absolute inset-0 transition-opacity duration-300 opacity-100 z-10 flex items-center justify-center">
+                                    <img src="Screenshot 2026-09-01 234444.png" class="w-full h-full object-contain" alt="Carousel Slide 1">
                                 </div>
-
-                                <!-- الصورة الثانية -->
-                                <div
-                                    class="carousel-slide w-full h-full absolute inset-0 transition-opacity duration-300 opacity-0 z-0 flex items-center justify-center">
-                                    <img src="Screenshot 2026-09-01 234459.png"
-                                        class="w-full h-full object-contain" alt="Carousel Slide 2">
+                                <div class="carousel-slide w-full h-full absolute inset-0 transition-opacity duration-300 opacity-0 z-0 flex items-center justify-center">
+                                    <img src="Screenshot 2026-09-01 234459.png" class="w-full h-full object-contain" alt="Carousel Slide 2">
                                 </div>
-
-                                <!-- الصورة الثالثة -->
-                                <div
-                                    class="carousel-slide w-full h-full absolute inset-0 transition-opacity duration-300 opacity-0 z-0 flex items-center justify-center">
-                                    <img src="Screenshot 2026-09-01 234512.png"
-                                        class="w-full h-full object-contain" alt="Carousel Slide 3">
+                                <div class="carousel-slide w-full h-full absolute inset-0 transition-opacity duration-300 opacity-0 z-0 flex items-center justify-center">
+                                    <img src="Screenshot 2026-09-01 234512.png" class="w-full h-full object-contain" alt="Carousel Slide 3">
                                 </div>
-
-                                <!-- الصورة الرابعة -->
-                                <div
-                                    class="carousel-slide w-full h-full absolute inset-0 transition-opacity duration-300 opacity-0 z-0 flex items-center justify-center">
-                                    <img src="Screenshot 2026-09-01 234526.png"
-                                        class="w-full h-full object-contain" alt="Carousel Slide 4">
+                                <div class="carousel-slide w-full h-full absolute inset-0 transition-opacity duration-300 opacity-0 z-0 flex items-center justify-center">
+                                    <img src="Screenshot 2026-09-01 234526.png" class="w-full h-full object-contain" alt="Carousel Slide 4">
                                 </div>
-
-                                <!-- الصورة الخامسة -->
-                                <div
-                                    class="carousel-slide w-full h-full absolute inset-0 transition-opacity duration-300 opacity-0 z-0 flex items-center justify-center">
-                                    <img src="Screenshot 2026-09-01 234540.png"
-                                        class="w-full h-full object-contain" alt="Carousel Slide 5">
+                                <div class="carousel-slide w-full h-full absolute inset-0 transition-opacity duration-300 opacity-0 z-0 flex items-center justify-center">
+                                    <img src="Screenshot 2026-09-01 234540.png" class="w-full h-full object-contain" alt="Carousel Slide 5">
                                 </div>
-
-                                <!-- أسهم التقليب -->
-                                <button onclick="moveCarousel(this, -1)"
-                                    class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center opacity-100 md:opacity-0 md:group-hover/slider:opacity-100 transition-all hover:bg-brand-primary hover:scale-110 border border-white/20 shadow-lg z-20">
+                                <button onclick="moveCarousel(this, -1)" class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center opacity-100 md:opacity-0 md:group-hover/slider:opacity-100 transition-all hover:bg-brand-primary hover:scale-110 border border-white/20 shadow-lg z-20">
                                     <i class="fas fa-chevron-right"></i>
                                 </button>
-
-                                <button onclick="moveCarousel(this, 1)"
-                                    class="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center opacity-100 md:opacity-0 md:group-hover/slider:opacity-100 transition-all hover:bg-brand-primary hover:scale-110 border border-white/20 shadow-lg z-20">
+                                <button onclick="moveCarousel(this, 1)" class="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center opacity-100 md:opacity-0 md:group-hover/slider:opacity-100 transition-all hover:bg-brand-primary hover:scale-110 border border-white/20 shadow-lg z-20">
                                     <i class="fas fa-chevron-left"></i>
                                 </button>
-
                             </div>
-
-                            <!-- مساحة النصوص والكابشن -->
                             <div class="p-5 relative z-30 bg-black/40">
                                 <h3 class="text-lg font-bold text-white mb-2">5 أخطاء شائعة قبل اختيار دورتك التدريبية</h3>
                                 <p class="text-xs text-gray-400 mb-3">
                                     كاروسيل توعوي واستراتيجي لمساعدة المهتمين على اتخاذ القرار الصحيح في اختيار البرامج المهنية.
                                 </p>
-
-                                <!-- صندوق الكابشن المخصص للكاروسيل -->
-                                <div
-                                    class="p-3.5 rounded-xl bg-white/[0.04] border border-white/10 text-xs md:text-sm text-gray-300 leading-relaxed whitespace-pre-line shadow-inner">
+                                <div class="p-3.5 rounded-xl bg-white/[0.04] border border-white/10 text-xs md:text-sm text-gray-300 leading-relaxed whitespace-pre-line shadow-inner">
                                     <div class="flex items-center gap-2 mb-2 text-xs font-semibold text-purple-400">
                                         <i class="fas fa-quote-right"></i>
                                         <span>كابشن الكاروسيل (Copy):</span>
                                     </div>تخاف تسجل في دورة وتكتشف بعدها إنها ما قدمت لك أي إضافة؟
 كثير يقعون في فخ الاختيار الخاطئ ويخسرون وقتهم وفلوسهم في برامج ما تخدم أهدافهم الوظيفية.
-
 👉 اسحب الشاشة وتعرف على أكثر 5 أخطاء شائعة قبل ما تاخذ قرارك القادم
-
 وتواصل معنا بالرسائل عشان نرشح لك البرنامج اللي يضمن لك النتيجة.
-
 #تطوير_مهني #البرامج_المهنية #سوق_العمل #اختيار_تدريب #التطوير_الوظيفي #النجاح_المهني #مهارات_العمل
                                 </div>
                             </div>
                         </div>
-
                         <div class="p-5 pt-0">
-                            <a href="https://www.instagram.com/p/DbTkKjCCKQC/?img_index=5" target="_blank"
-                                class="w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white/5 hover:bg-purple-600 text-gray-300 hover:text-white transition-all text-xs font-bold border border-white/10">
+                            <a href="https://www.instagram.com/p/DbTkKjCCKQC/?img_index=5" target="_blank" class="w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white/5 hover:bg-purple-600 text-gray-300 hover:text-white transition-all text-xs font-bold border border-white/10">
                                 مشاهدة الكاروسيل كاملاً <i class="fas fa-arrow-left text-xs"></i>
                             </a>
                         </div>
                     </div>
-                    <!-- ========================================================================================= -->
-                    <!--                                 نهاية كارد الكاروسيل الأول                                 -->
-                    <!-- ========================================================================================= -->
-
                 </div>
-
             </div>
         </div>
-
         <!-- Floating Notice Box -->
         <div class="notice-box fixed bottom-6 left-1/2 transform -translate-x-1/2 z-[110] w-[90%] sm:w-auto max-w-md">
-            <div
-                class="glass-panel bg-black/85 border border-brand-primary/50 px-5 py-3 rounded-full flex items-center justify-center gap-3 shadow-[0_0_15px_rgba(59,130,246,0.3)] backdrop-blur-xl arabic-text">
+            <div class="glass-panel bg-black/85 border border-brand-primary/50 px-5 py-3 rounded-full flex items-center justify-center gap-3 shadow-[0_0_15px_rgba(59,130,246,0.3)] backdrop-blur-xl arabic-text">
                 <i class="fas fa-sync-alt animate-spin text-brand-primary text-sm shrink-0"></i>
-                <span class="text-white font-semibold text-xs md:text-sm text-center">الملف تحت التحديث، يضاف جديد كل ٢٤
-                    ساعة</span>
+                <span class="text-white font-semibold text-xs md:text-sm text-center">الملف تحت التحديث، يضاف جديد كل ٢٤ ساعة</span>
             </div>
         </div>
     </div>
-
     <!-- Interactive Scripts -->
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
-
         // Gallery Tabs Logic
         const galleryPage = document.getElementById('gallery-page');
         function openGallery() {
@@ -878,41 +756,32 @@
             galleryPage.classList.add('hidden');
             document.body.style.overflow = 'auto';
         }
-
         // Switch Tab logic
         function switchTab(tabName) {
             const tabs = ['plans', 'reels', 'campaigns', 'posts', 'carousels'];
-
             tabs.forEach(t => {
                 const contentEl = document.getElementById('content-' + t);
                 const btnEl = document.getElementById('btn-' + t);
                 if (contentEl) contentEl.classList.add('hidden');
                 if (btnEl) btnEl.classList.remove('active', 'border-brand-primary');
             });
-
             const activeContent = document.getElementById('content-' + tabName);
             const activeBtn = document.getElementById('btn-' + tabName);
             if (activeContent) activeContent.classList.remove('hidden');
             if (activeBtn) activeBtn.classList.add('active');
         }
-
         // Carousel Slider Logic
         function moveCarousel(btn, direction) {
             const container = btn.closest('.carousel-container');
             const slides = container.querySelectorAll('.carousel-slide');
             let currentIndex = parseInt(container.getAttribute('data-current') || '0');
-
             slides[currentIndex].classList.remove('opacity-100', 'z-10');
             slides[currentIndex].classList.add('opacity-0', 'z-0');
-
             currentIndex = (currentIndex + direction + slides.length) % slides.length;
-
             slides[currentIndex].classList.remove('opacity-0', 'z-0');
             slides[currentIndex].classList.add('opacity-100', 'z-10');
-
             container.setAttribute('data-current', currentIndex);
         }
-
         // ==========================================
         // ALL MEDIA DATA (TIKTOK REELS + PODCAST)
         // ==========================================
@@ -1062,26 +931,21 @@
                 views: "الإصدار الأحدث",
                 role: "إنتاج كامل (فويس أوفر، هندسة صوتية ومؤثرات، مونتاج وسيناريو)",
                 tools: "Voice Acting, Audition, Sound Design, Premiere",
-                link: "https://www.youtube.com/watch?v=_oHcnKi__iE"
+                link: "https://www.youtube.com/watch?v=破坏"
             }
         ];
-
         let currentMediaFilter = 'all';
         let showAllMedia = false;
-
         function renderMedia() {
             const container = document.getElementById('media-cards-grid');
             const loadMoreBtn = document.getElementById('btn-load-more');
             const loadMoreContainer = document.getElementById('load-more-container');
-
             const filtered = allMediaData.filter(item => {
                 if(currentMediaFilter === 'all') return true;
                 return item.type === currentMediaFilter;
             });
-
             const limit = (showAllMedia || currentMediaFilter !== 'all') ? filtered.length : 6;
             const itemsToDisplay = filtered.slice(0, limit);
-
             let html = '';
             itemsToDisplay.forEach(r => {
                 if (r.type === 'podcast') {
@@ -1096,7 +960,6 @@
                                         <i class="fab fa-youtube"></i>
                                         <span>${r.views}</span>
                                     </div>
-
                                     <div class="absolute z-20 w-12 h-12 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center border border-white/30 group-hover:bg-red-600 group-hover:border-white transition-all shadow-lg group-hover:scale-110">
                                         <i class="fas fa-play text-white text-sm translate-x-0.5"></i>
                                     </div>
@@ -1144,7 +1007,6 @@
                                         <i class="fab fa-tiktok"></i>
                                         <span>TikTok Reel</span>
                                     </div>
-
                                     <div class="absolute z-20 w-12 h-12 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center border border-white/30 group-hover:bg-[#00f2fe] group-hover:text-black group-hover:border-white transition-all shadow-lg group-hover:scale-110">
                                         <i class="fab fa-tiktok text-white group-hover:text-black text-lg"></i>
                                     </div>
@@ -1182,9 +1044,7 @@
                     `;
                 }
             });
-
             container.innerHTML = html;
-
             // Handle Load More visibility
             if(currentMediaFilter !== 'all' || filtered.length <= 6) {
                 loadMoreContainer.classList.add('hidden');
@@ -1197,11 +1057,9 @@
                 }
             }
         }
-
         function filterMedia(filter) {
             currentMediaFilter = filter;
             showAllMedia = false;
-
             const buttons = ['all', 'podcast', 'tiktok'];
             buttons.forEach(b => {
                 const btn = document.getElementById('filter-btn-' + b);
@@ -1213,33 +1071,26 @@
                     }
                 }
             });
-
             renderMedia();
         }
-
         function toggleShowAllMedia() {
             showAllMedia = !showAllMedia;
             renderMedia();
         }
-
         // Initialize Media Rendering
         renderMedia();
-
         // Three.js Background Animation
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.getElementById('canvas-container').appendChild(renderer.domElement);
-
         const particlesGeometry = new THREE.BufferGeometry();
         const particlesCount = 700;
         const posArray = new Float32Array(particlesCount * 3);
         for (let i = 0; i < particlesCount * 3; i++) {
             posArray[i] = (Math.random() - 0.5) * 10;
         }
-
         particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
         const material = new THREE.PointsMaterial({
             size: 0.02,
@@ -1248,18 +1099,15 @@
             opacity: 0.8,
             blending: THREE.AdditiveBlending
         });
-
         const particlesMesh = new THREE.Points(particlesGeometry, material);
         scene.add(particlesMesh);
         camera.position.z = 3;
-
         let mouseX = 0;
         let mouseY = 0;
         document.addEventListener('mousemove', (event) => {
             mouseX = event.clientX / window.innerWidth - 0.5;
             mouseY = event.clientY / window.innerHeight - 0.5;
         });
-
         const clock = new THREE.Clock();
         function animate() {
             requestAnimationFrame(animate);
@@ -1271,13 +1119,11 @@
             renderer.render(scene, camera);
         }
         animate();
-
         window.addEventListener('resize', () => {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(window.innerWidth, window.innerHeight);
         });
-
         // Scroll Reveal logic
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
@@ -1292,7 +1138,6 @@
         }
         window.addEventListener("scroll", reveal);
         reveal();
-
         const counters = document.querySelectorAll('.counter');
         const speed = 100;
         const animateCounters = () => {
@@ -1311,7 +1156,6 @@
                 updateCount();
             });
         }
-
         let counterAnimated = false;
         window.addEventListener('scroll', () => {
             const statsSection = document.getElementById('stats');
@@ -1323,7 +1167,6 @@
                 counterAnimated = true;
             }
         });
-
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -1336,5 +1179,4 @@
         });
     </script>
 </body>
-
 </html>
